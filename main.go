@@ -12,6 +12,9 @@ func main() {
 	http.Handle("/Front/", http.StripPrefix("/Front/", fs))
 	//all Handlers
 	http.HandleFunc("/", o.WelcomeHandler)
+	http.HandleFunc("/Search", o.SearchHandler)
+	// path := "path/to/script"
+	// s.ScriptExec(path)
 	//Start server
 	fmt.Println("Serveur web écoutant sur le port 8080...")
 	http.ListenAndServe(":8080", nil)

@@ -8,9 +8,21 @@
 <body>
     <h1>{{.ProcessMessage}}</h1>
     <p>This is the message</p>
-    <form action="/chemin-de-recherche" method="get">
-        <input type="text" name="q" placeholder="Rechercher...">
-        <input type="submit" value="Recherche">
+
+    <form action="/Search" method="GET">
+        <input type="text" name="input" placeholder="Enter search query">
+        <button type="submit">Search</button>
+    </form>
+    <form action="/Registration" method="post">
+        <input type="text" name="username" placeholder="Enter username">
+        <input type="text" name="email" placeholder="Enter email">
+        <input type="text" name="password" placeholder="Enter password">
+        <button type="submit">Register</button>
+    </form>
+    <form action="/Login" method="post">
+        <input type="text" name="username" placeholder="Enter username">
+        <input type="text" name="password" placeholder="Enter password">
+        <button type="submit">Login</button>
     </form>
 </body>
 

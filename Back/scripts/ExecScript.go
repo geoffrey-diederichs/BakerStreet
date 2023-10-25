@@ -2,13 +2,12 @@ package OSINT
 
 import (
 	"fmt"
-	"net/http"
 	"os/exec"
 )
 
-func ScriptExec(w http.ResponseWriter, r *http.Request) {
+func ScriptExec(string) {
 	pseudo := "clem"
-	cmd := exec.Command("/bin/sh", "/home/clem/Osint/Bakerstreet/Back/server/test.sh", pseudo)
+	cmd := exec.Command("/bin/sh", "/home/clem/Osint/BakerStreet/Back/scripts/test.sh", pseudo)
 	output, err := cmd.CombinedOutput()
 	if err != nil {
 		fmt.Printf("Script execution failed with error: %v\nOutput: %s\n", err, output)
