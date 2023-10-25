@@ -1,18 +1,18 @@
 package main
 
 import (
+	o "OSINT/back-end"
 	"fmt"
 	"net/http"
 )
 
 func main() {
-	http.HandleFunc("/", handler)
-	// s.TestFunc()
+	fs := http.FileServer(http.Dir("./Front/"))
+	http.Handle("/Front/", http.StripPrefix("/Front/", fs))
+
+	http.HandleFunc("/", o.WelcomeHandler)
+
 	fmt.Println("Serveur web écoutant sur le port 8080...")
 	http.ListenAndServe(":8080", nil)
 
-}
-
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello, World!")
 }
