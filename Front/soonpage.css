@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Kanit&family=Nunito+Sans:opsz@6..12&family=Open+Sans:wght@300&family=Oswald:wght@500&family=Padyakke+Expanded+One&family=Rubik:wght@500&display=swap');
+
+.middletitle{
+        top: 75%;
+        left: 58%;
+        width: 30em;
+        height: 18em;
+        margin-top: -9em;
+        margin-left: -15em;
+        position: fixed;
+        color: white;
+        font-family: Nunito Sans;
+        font-size: x-large;
+}
+
+.image{
+        top: 40%;
+        left: 55%;
+        width: 30em;
+        height: 18em;
+        margin-top: -9em;
+        margin-left: -15em;
+        position: fixed;
+
+}
+
+body{
+    background-color: #0D1B2B;
+}
