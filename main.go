@@ -12,7 +12,9 @@ func main() {
 	http.Handle("/Front/", http.StripPrefix("/Front/", fs))
 	//all Handlers
 	http.HandleFunc("/", o.WelcomeHandler)
-	http.HandleFunc("/Search", o.SearchHandler)
+	http.HandleFunc("/Recherche", o.SearchHandler)
+	http.HandleFunc("/Enregistrement", o.Enregistrement)
+	http.HandleFunc("/Authentification", o.Check)
 	// path := "path/to/script"
 	// s.ScriptExec(path)
 	//Start server

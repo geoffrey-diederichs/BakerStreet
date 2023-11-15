@@ -2,10 +2,15 @@ package OSINT
 
 var TplData TemplateData
 
-type User struct {
-	Id    string
-	Name  string
-	Email string
+type Utilisateurs struct {
+	ID     int
+	Pseudo string
+	Mdp    string
+	Prenom string
+	Nom    string
+	Mail   string
+	Age    int
+	Icon   string
 }
 
 // type Result struct {
@@ -18,6 +23,6 @@ type User struct {
 
 type TemplateData struct {
 	ProcessMessage string
-	User           User
+	User           Utilisateurs
 	// Result         Result
 }
