@@ -14,7 +14,7 @@ func main() {
 	http.HandleFunc("/", o.WelcomeHandler)
 	http.HandleFunc("/Recherche", o.SearchHandler)
 	http.HandleFunc("/Enregistrement", o.Enregistrement)
-	http.HandleFunc("/Authentification", o.Check)
+	http.HandleFunc("/Authentification", o.Login)
 	// path := "path/to/script"
 	// s.ScriptExec(path)
 	//Start server

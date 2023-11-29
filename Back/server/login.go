@@ -2,6 +2,7 @@ package OSINT
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -11,11 +12,10 @@ import (
 )
 
 // check virifie les identifiant de l'uilisateur
-func Check(w http.ResponseWriter, r *http.Request) {
+func Login(w http.ResponseWriter, r *http.Request) {
 
 	if r.Method == "POST" {
-		// pseudo := r.FormValue("username")
-		pseudo := "tim"
+		pseudo := r.FormValue("username")
 		mdp := r.FormValue("password")
 		// Récupérer le hash du mot de passe enregistré dans la base de données pour cet utilisateur
 		row := Bd.QueryRow("SELECT mdp FROM Utilisateurs WHERE pseudo = ?", pseudo)
