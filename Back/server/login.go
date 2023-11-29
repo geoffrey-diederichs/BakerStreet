@@ -2,7 +2,6 @@ package OSINT
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
 	"net/http"
 
@@ -47,12 +46,10 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		// Vérifier que le mot de passe fourni correspond au hash stocké dans la base de données
 
 		if ComparePassword(MdpHash, mdp) != nil {
-			println("false")
 			// Le mot de passe fourni ne correspond pas au hash stocké dans la base de données
 			TplData.ProcessMessage = "Mot de passe incorrect"
 			http.Redirect(w, r, "/", http.StatusSeeOther)
 		} else {
-			println("true")
 			TplData.ProcessMessage = "Vous êtes connecté"
 			http.Redirect(w, r, "/", http.StatusSeeOther)
 		}
