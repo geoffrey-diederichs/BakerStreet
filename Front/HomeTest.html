@@ -6,7 +6,10 @@
 <html>
 
 <body>
-    <h1>{{.ProcessMessage}}</h1>
+    {{if .ProcessMessage }} 
+    <div>{{.ProcessMessage}}</div>
+    {{end}} 
+
     <p>This is the message</p>
 
     <form action="/Recherche" method="GET">

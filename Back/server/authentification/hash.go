@@ -1,8 +1,7 @@
-package OSINT
+package authentification
 
 import (
 	"fmt"
-
 	"golang.org/x/crypto/bcrypt"
 )
 

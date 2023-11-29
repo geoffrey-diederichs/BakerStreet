@@ -1,4 +1,4 @@
-package OSINT
+package structure
 
 var TplData TemplateData
 

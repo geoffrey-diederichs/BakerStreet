@@ -1,7 +1,7 @@
 package main
 
 import (
-	o "OSINT/Back/server"
+	o "OSINT/Back/server/handlers"
 	"fmt"
 	"net/http"
 )
@@ -13,8 +13,8 @@ func main() {
 	//all Handlers
 	http.HandleFunc("/", o.WelcomeHandler)
 	http.HandleFunc("/Recherche", o.SearchHandler)
-	http.HandleFunc("/Enregistrement", o.Enregistrement)
-	http.HandleFunc("/Authentification", o.Login)
+	http.HandleFunc("/Enregistrement", o.EnregistrementHandler)
+	http.HandleFunc("/Authentification", o.LoginHandler)
 	// path := "path/to/script"
 	// s.ScriptExec(path)
 	//Start server

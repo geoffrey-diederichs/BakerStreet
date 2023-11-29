@@ -1,4 +1,4 @@
-package OSINT
+package data
 
 import (
 	"database/sql"
@@ -26,9 +26,14 @@ func OuvrirBaseDonnee(chemin string) (*sql.DB, error) {
 	if err != nil {
 		// Si la table n'existe pas, la créer
 		_, err := bd.Exec(`CREATE TABLE Utilisateurs (
-    id INTEGER PRIMARY KEY,
-    pseudo TEXT NOT NULL,
-    mdp TEXT NOT NULL
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT UNIQUE NOT NULL,
+    mdp TEXT NOT NULL,
+	nom TEXT ,
+	prenom TEXT ,
+	email TEXT UNIQUE NOT NULL,
+	age INTEGER,
+	icon TEXT
 );`)
 		if err != nil {
 			fmt.Println(err)
@@ -37,21 +42,6 @@ func OuvrirBaseDonnee(chemin string) (*sql.DB, error) {
 		fmt.Println("Table Utilisateurs créée avec succès.")
 	} else {
 		fmt.Println("La table Utilisateurs existe déjà.")
-	}
-	_, err = bd.Exec("SELECT * FROM McServeur")
-	if err != nil {
-		_, err = bd.Exec(`CREATE TABLE McServeur (
-			id INTEGER PRIMARY KEY,
-			proprio TEXT NOT NULL,
-			port INT NOT NULL
-		);`)
-		if err != nil {
-			fmt.Println(err)
-			return bd, err
-		}
-		fmt.Println("Table McServeur créée avec succès.")
-	} else {
-		fmt.Println("La table McServeur Existe déjà.")
 	}
 
 	return bd, err
@@ -65,37 +55,37 @@ func ObtenirInfoUtilisateur(NomUtilisateur string) (int, string, string, string,
 	var id int
 	var prenom string
 	var nom string
-	var mail string
+	var email string
 	var age int
 	var icon string
 	// On rentre les informations de demande dans les variables
-	err := demande.Scan(&id, &prenom, &nom, &mail, &age, &icon)
+	err := demande.Scan(&id, &prenom, &nom, &email, &age, &icon)
 	// S'il y a une erreur renvoie des variables contenant rien plus l'erreur
 	if err != nil {
 		return 0, "", "", "", 0, "", err
 	}
 	// Sinon envoyer les variables
-	return id, prenom, nom, mail, age, icon, nil
+	return id, prenom, nom, email, age, icon, nil
 }
 
 func ObtenirInfoUtilisateurID(idUtilisateur int) (int, string, string, string, int, string, error) {
 	// Initialisation de demande avec une requette SQL pour recuperer les informations de l'utilisateur
-	demande := Bd.QueryRow("SELECT id, prenom, nom, mail, age, icon FROM Utilisateurs WHERE id = ?", idUtilisateur)
+	demande := Bd.QueryRow("SELECT id, prenom, nom, email, age, icon FROM Utilisateurs WHERE id = ?", idUtilisateur)
 	// Initialisation des variables id, prenom, nom, mail, age et icon
 	var id int
 	var prenom string
 	var nom string
-	var mail string
+	var email string
 	var age int
 	var icon string
 	// On rentre les informations de demande dans les variables
-	err := demande.Scan(&id, &prenom, &nom, &mail, &age, &icon)
+	err := demande.Scan(&id, &prenom, &nom, &email, &age, &icon)
 	// S'il y a une erreur renvoie des variables contenant rien plus l'erreur
 	if err != nil {
 		return 0, "", "", "", 0, "", err
 	}
 	// Sinon envoyer les variables
-	return id, prenom, nom, mail, age, icon, nil
+	return id, prenom, nom, email, age, icon, nil
 }
 
 func ObtenirInfoPoste(ID string) (string, string, string, string, string, int, int, error) {
