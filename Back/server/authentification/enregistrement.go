@@ -35,12 +35,10 @@ func Enregistrement(w http.ResponseWriter, r *http.Request) {
 		if username == "" || email == "" || password == "" || confirme_password == "" || nom == "" || prenom == "" {
 			structure.TplData.ProcessMessage = "Entrez bien toute les informations"
 			fmt.Println(structure.TplData.ProcessMessage)
-			http.Redirect(w, r, "/", http.StatusSeeOther)
 			return
 		} else if password != confirme_password {
 			structure.TplData.ProcessMessage = "Mot de passe non identique"
 			fmt.Println(structure.TplData.ProcessMessage)
-			http.Redirect(w, r, "/", http.StatusSeeOther)
 			return
 		}
 		mdpHashed, err := HashPassword(password)
@@ -63,18 +61,17 @@ func Enregistrement(w http.ResponseWriter, r *http.Request) {
 				fmt.Println(structure.TplData.ProcessMessage)
 			}
 
-			http.Redirect(w, r, "/", http.StatusSeeOther)
 			return
 		} else {
 			structure.TplData.ProcessMessage = "You have been registered. Please log in"
 			fmt.Println(structure.TplData.ProcessMessage)
-			http.Redirect(w, r, "/", http.StatusSeeOther)
+			return
 		}
 
 	} else {
 		structure.TplData.ProcessMessage = "Entrez bien toute les informations"
 		fmt.Println(structure.TplData.ProcessMessage)
-		http.Redirect(w, r, "/", http.StatusSeeOther)
+		return
 	}
 
 }
