@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <!-- Include Tailwind CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kokoro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Front/styles/register.css">
+</head>
+
+<body>
+    
+    <!-- Logo and Baker Street at the top with some padding -->
+    <div class="top-container">
+        <img src="Ellipse 1 (1).png" alt="Baker Street Logo" class="logo">
+        <div class="title">BAKER STREET</div>
+    </div>
+    
+    <div class="main-container">
+        <div class="form-container">
+
+            <!-- Logo and title -->
+            <div class="header">
+                <img src="Ellipse 1.png" alt="Baker Street Logo" class="logo">
+                <h1>S'enregistrer</h1>
+            </div>
+
+            <!-- Form fields -->
+            <form action="your_action_url" method="post">
+                
+                <div class="input-container">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" >
+                </div>
+                <div class="input-container">
+                    <label for="username">Nom d'utilisateur</label>
+                    <input type="text" id="username" name="username">
+                </div>
+                <div class="input-container">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <div class="input-container">
+                    <label for="password_verify">Vérification du mot de passe</label>
+                    <input type="password" id="password_verify" name="password_verify">
+                </div>
+                
+                <!-- Submit button -->
+                <div class="button-container">
+                    <button type="submit">Valider</button>
+                </div>
+            </form>
+
+            <!-- Link to login -->
+            
+        </div>
+        
+    </div>
+    <div class="login-link">
+        <p>Vous avez déjà un compte ? <a href="#">cliquez ici</a></p>
+    </div>
+
+</body>
+</html>
