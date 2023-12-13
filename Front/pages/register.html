@@ -15,7 +15,7 @@
     
     <!-- Logo and Baker Street at the top with some padding -->
     <div class="top-container">
-        <img src="Ellipse 1 (1).png" alt="Baker Street Logo" class="logo">
+        <img src="/Front/assets/img/Ellipse 1 (1).png" alt="Baker Street Logo" class="logo">
         <div class="title">BAKER STREET</div>
     </div>
     
@@ -24,28 +24,36 @@
 
             <!-- Logo and title -->
             <div class="header">
-                <img src="Ellipse 1.png" alt="Baker Street Logo" class="logo">
+                <img src="/Front/assets/img/Ellipse 1 (1).png" alt="Baker Street Logo" class="logo">
                 <h1>S'enregistrer</h1>
             </div>
 
             <!-- Form fields -->
-            <form action="your_action_url" method="post">
+            <form action="/Enregistrement" method="post">
                 
                 <div class="input-container">
+                    <label for="nom">Nom</label>
+                    <input type="text" name="nom" placeholder="Entrer nom">
+                </div>
+                <div class="input-container">
+                    <label for="prenom">Prenom</label>
+                    <input type="text" name="prenom" placeholder="Entrer prenom">
+                </div>
+                <div class="input-container">
                     <label for="email">Email</label>
-                    <input type="text" id="email" name="email" >
+                    <input type="text" name="email" placeholder="Entrer email">
                 </div>
                 <div class="input-container">
                     <label for="username">Nom d'utilisateur</label>
-                    <input type="text" id="username" name="username">
+                    <input type="text" name="username" placeholder="Entrer nom d'utilisateur">
                 </div>
                 <div class="input-container">
                     <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password">
+                    <input type="text" name="password" placeholder="Entrer le mot de passe">
                 </div>
                 <div class="input-container">
-                    <label for="password_verify">Vérification du mot de passe</label>
-                    <input type="password" id="password_verify" name="password_verify">
+                    <label for="confirme_password">Vérification du mot de passe</label>
+                    <input type="text" name="confirme_password" placeholder="Verifier le mot de passe">
                 </div>
                 
                 <!-- Submit button -->

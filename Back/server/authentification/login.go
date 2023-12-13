@@ -80,7 +80,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	} else {
 		structure.TplData.ProcessMessage = "Entrez bien toute les informations"
 		fmt.Println(structure.TplData.ProcessMessage)
-		http.Redirect(w, r, "/", http.StatusSeeOther)
+		return
 	}
 }
 

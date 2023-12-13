@@ -11,12 +11,12 @@ import (
 var tpl *template.Template
 
 func init() {
-	tpl = template.Must(template.ParseGlob("Front/HomeTest.html"))
+	tpl = template.Must(template.ParseGlob("Front/pages/*.html"))
 }
 
 func WelcomeHandler(w http.ResponseWriter, r *http.Request) {
 	structure.TplData.ProcessMessage = "Welcome to the OSINT project !"
-	errTpl := tpl.ExecuteTemplate(w, "HomeTest.html", structure.TplData)
+	errTpl := tpl.ExecuteTemplate(w, "accueil.html", structure.TplData)
 	if errTpl != nil {
 		fmt.Println(errTpl)
 	}
@@ -25,7 +25,7 @@ func WelcomeHandler(w http.ResponseWriter, r *http.Request) {
 func EnregistrementHandler(w http.ResponseWriter, r *http.Request) {
 	auth.Enregistrement(w, r)
 	fmt.Println("Enregistrement : " + structure.TplData.ProcessMessage)
-	errTpl := tpl.ExecuteTemplate(w, "HomeTest.html", structure.TplData)
+	errTpl := tpl.ExecuteTemplate(w, "register.html", structure.TplData)
 	if errTpl != nil {
 		fmt.Println(errTpl)
 	}
@@ -34,7 +34,7 @@ func EnregistrementHandler(w http.ResponseWriter, r *http.Request) {
 func LoginHandler(w http.ResponseWriter, r *http.Request) {
 	auth.Login(w, r)
 	fmt.Println("Login : " + structure.TplData.ProcessMessage)
-	errTpl := tpl.ExecuteTemplate(w, "HomeTest.html", structure.TplData)
+	errTpl := tpl.ExecuteTemplate(w, "login.html", structure.TplData)
 	if errTpl != nil {
 		fmt.Println(errTpl)
 	}
@@ -44,7 +44,7 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 func LogoutHandler(w http.ResponseWriter, r *http.Request) {
 	auth.Logout(w, r)
 	fmt.Println("Logout : " + structure.TplData.ProcessMessage)
-	errTpl := tpl.ExecuteTemplate(w, "HomeTest.html", structure.TplData)
+	errTpl := tpl.ExecuteTemplate(w, "accueil.html", structure.TplData)
 	if errTpl != nil {
 		fmt.Println(errTpl)
 	}

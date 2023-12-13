@@ -8,7 +8,7 @@ import (
 
 func main() {
 	//all static files
-	fs := http.FileServer(http.Dir("./Front/"))
+	fs := http.FileServer(http.Dir("Front"))
 	http.Handle("/Front/", http.StripPrefix("/Front/", fs))
 	//all Handlers
 	http.HandleFunc("/", o.WelcomeHandler)
