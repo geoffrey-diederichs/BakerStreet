@@ -1,0 +1,144 @@
+body {
+    background-color: #0D1B2B;
+    font-family: 'Kokoro', sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.top-container {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    padding: 6px;
+}
+
+.logo {
+    width: 64px;
+    height: 64px;
+    margin-right: 16px;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.form-container {
+    background-color: #7C90AD;
+    padding: 24px;
+    border-radius: 70px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 384px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.input-container {
+    margin-bottom: 16px;
+}
+
+input {
+    height: 80%;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 24px;
+}
+
+.button-container {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: #3490dc;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 24px;
+    cursor: pointer;
+    border: none;
+    width: 45%;
+}
+
+button:hover {
+    background-color: #2779bd;
+}
+
+.login-link {
+    margin-top: 16px;
+    text-align: center;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 16px;
+    position: absolute; /* Ajouté pour le positionnement absolu */
+    bottom: 2%; /* Distance par rapport au bas de la page */
+    width: 100%; /* Prend toute la largeur de la fenêtre */
+}
+
+#password {
+    background-image: url('fermer-a-cle.png');  /* Remplacez par le chemin de votre image */
+    background-repeat: no-repeat;
+    background-position: calc(100% - 20px) center;
+    background-size: 20px; /* La taille de l'image, ajustez selon vos besoins */
+    padding-right: 30px; /* Pour s'assurer que le texte ne chevauche pas l'image */
+    /* margin-right: 5%; */
+}
+
+#email {
+    background-image: url('email.png');  /* Remplacez par le chemin de votre image */
+    background-repeat: no-repeat;
+    background-position: calc(100% - 20px) center;
+    background-size: 20px; /* La taille de l'image, ajustez selon vos besoins */
+    padding-right: 30px;
+}
+
+.phrase {
+    text-align: center;
+    margin-top: 16px;
+    
+}
+
+.options-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 5px; /* Ajoute un peu d'espace entre la case à cocher et le texte */
+}
