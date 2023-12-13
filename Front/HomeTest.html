@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<html>
+
+<body>
+    {{if .ProcessMessage }} 
+    <div>{{.ProcessMessage}}</div>
+    {{end}} 
+
+    <p>This is the message</p>
+
+    <form action="/Recherche" method="GET">
+        <input type="text" name="input" placeholder="Enter search query">
+        <button type="submit">Search</button>
+    </form>
+    <form action="/Enregistrement" method="POST">
+        <input type="text" name="nom" placeholder="Entrer nom">
+        <input type="text" name="prenom" placeholder="Entrer prenom">
+        <input type="text" name="username" placeholder="Entrer nom utilisateur">
+        <input type="text" name="email" placeholder="Entrer email">
+        <input type="text" name="password" placeholder="Entrer le mot de passe">
+        <input type="text" name="confirme_password" placeholder="Verifier le mot de passe">
+        <button type="submit">Register</button>
+    </form>
+    <form action="/Authentification" method="POST">
+        <input type="text" name="username" placeholder="Entrer nom utilisateur">
+        <input type="text" name="password" placeholder="Entrer le mot de passe">
+        <button type="submit">Login</button>
+    </form>
+    <form action="/Deconnexion" method="POST">
+        <button type="submit">Logout</button>
+    </form>
+</body>
+
+</html>
