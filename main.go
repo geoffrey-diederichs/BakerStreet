@@ -15,6 +15,7 @@ func main() {
 	http.HandleFunc("/Recherche", o.SearchHandler)
 	http.HandleFunc("/Enregistrement", o.EnregistrementHandler)
 	http.HandleFunc("/Authentification", o.LoginHandler)
+	http.HandleFunc("/Deconnexion", o.LogoutHandler)
 	// path := "path/to/script"
 	// s.ScriptExec(path)
 	//Start server

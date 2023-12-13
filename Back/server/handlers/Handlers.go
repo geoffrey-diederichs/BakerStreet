@@ -41,6 +41,16 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 
 }
 
+func LogoutHandler(w http.ResponseWriter, r *http.Request) {
+	auth.Logout(w, r)
+	fmt.Println("Logout : " + structure.TplData.ProcessMessage)
+	errTpl := tpl.ExecuteTemplate(w, "HomeTest.html", structure.TplData)
+	if errTpl != nil {
+		fmt.Println(errTpl)
+	}
+
+}
+
 func SearchHandler(w http.ResponseWriter, r *http.Request) {
 	input := r.FormValue("input")
 	fmt.Println(input, "test input")

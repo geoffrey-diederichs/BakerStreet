@@ -29,7 +29,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	_, ok := session.Values["pseudo"].(string)
 	if ok {
 		// Rediriger l'utilisateur vers la page d'acceuil s'il est connecté
-		http.Redirect(w, r, "/acceuil", http.StatusSeeOther)
+		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
 
