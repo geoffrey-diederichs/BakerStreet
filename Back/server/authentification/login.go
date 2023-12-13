@@ -26,9 +26,13 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Vérifier si l'utilisateur est connecté
-	_, ok := session.Values["pseudo"].(string)
+	_, ok := session.Values["username"].(string)
 	if ok {
+
 		// Rediriger l'utilisateur vers la page d'acceuil s'il est connecté
+		structure.TplData.ProcessMessage = "Vous êtes déja connecté en tant que " + session.Values["username"].(string) + " !"
+		fmt.Println(structure.TplData.ProcessMessage)
+
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
@@ -72,15 +76,17 @@ func Login(w http.ResponseWriter, r *http.Request) {
 			fmt.Println(structure.TplData.ProcessMessage)
 			return
 		} else {
-			structure.TplData.ProcessMessage = "Vous êtes connecté"
+			session.Values["username"] = username
+			session.Save(r, w)
+			structure.TplData.ProcessMessage = "Vous êtes maintenant connecté en tant que " + username + " !"
 			fmt.Println(structure.TplData.ProcessMessage)
-			return
+			http.Redirect(w, r, "/", http.StatusSeeOther)
 		}
 
 	} else {
 		structure.TplData.ProcessMessage = "Entrez bien toute les informations"
 		fmt.Println(structure.TplData.ProcessMessage)
-		return
+
 	}
 }
 

@@ -15,7 +15,6 @@ func init() {
 }
 
 func WelcomeHandler(w http.ResponseWriter, r *http.Request) {
-	structure.TplData.ProcessMessage = "Welcome to the OSINT project !"
 	errTpl := tpl.ExecuteTemplate(w, "accueil.html", structure.TplData)
 	if errTpl != nil {
 		fmt.Println(errTpl)
@@ -31,9 +30,18 @@ func EnregistrementHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// func PasswordModifyHandler(w http.ResponseWriter, r *http.Request) {
+// 	auth.Enregistrement(w, r)
+// 	fmt.Println("PasswordModify : " + structure.TplData.ProcessMessage)
+// 	errTpl := tpl.ExecuteTemplate(w, "password_modify.html", structure.TplData)
+// 	if errTpl != nil {
+// 		fmt.Println(errTpl)
+// 	}
+// }
+
 func LoginHandler(w http.ResponseWriter, r *http.Request) {
+
 	auth.Login(w, r)
-	fmt.Println("Login : " + structure.TplData.ProcessMessage)
 	errTpl := tpl.ExecuteTemplate(w, "login.html", structure.TplData)
 	if errTpl != nil {
 		fmt.Println(errTpl)

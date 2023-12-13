@@ -14,6 +14,7 @@ func main() {
 	http.HandleFunc("/", o.WelcomeHandler)
 	http.HandleFunc("/Recherche", o.SearchHandler)
 	http.HandleFunc("/Enregistrement", o.EnregistrementHandler)
+	// http.HandleFunc("/PasswordModify", o.PasswordModifyHandler)
 	http.HandleFunc("/Authentification", o.LoginHandler)
 	http.HandleFunc("/Deconnexion", o.LogoutHandler)
 	// path := "path/to/script"
