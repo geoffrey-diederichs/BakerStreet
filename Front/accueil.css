@@ -1,0 +1,49 @@
+
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    width: 1300px;
+}
+
+.searchbar{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    width: 1000px;
+    margin-top: -200px;
+    height: 40px;
+    border-radius: 20px;
+    background: transparent;
+    border-color: rgb(145, 145, 145) ;
+}
+
+.reference{
+    background-color: rgb(172, 172, 172);
+    width: 600px;
+    margin-top: 300px;
+    margin-left: 200px;
+    border-radius: 20px;
+}
+
+.ref-image{
+    width: 600px;
+}
+
+.ref-texte{
+    font-size: x-large;
+}
+
+.reference2{
+    background-color: rgb(151, 151, 151);
+    width: 600px;
+    margin-top: -700px;
+    margin-left: 1000px;
+    border-radius: 20px;
+}
+
+.ref-image2{
+    width: 600px;
+}
