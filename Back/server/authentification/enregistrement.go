@@ -3,29 +3,26 @@ package authentification
 import (
 	data "OSINT/Back/server/data"
 	structure "OSINT/Back/server/structure"
-	"fmt"
 	"net/http"
 
 	_ "github.com/mattn/go-sqlite3"
+	"go.uber.org/zap"
 )
 
 func Enregistrement(w http.ResponseWriter, r *http.Request) {
 	session, err := data.Store.Get(r, "data")
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		logger.Error("Failed to get the session : ", zap.Error(err))
 		return
 	}
-	_, ok := session.Values["pseudo"].(string)
+	_, ok := session.Values["username"].(string)
 	if ok {
-		http.Redirect(w, r, "/accueil", http.StatusSeeOther)
+		structure.TplData.ProcessMessage = "Vous êtes déja connecté en tant que " + session.Values["username"].(string) + " !"
+		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
 	if r.Method == "POST" {
 
-		// if r.FormValue("submit") == "" {
-		// 	TplData.ProcessMessage = "Entrez bien toute les informations"
-		// 	http.Redirect(w, r, "/", http.StatusSeeOther)
-		// } else {
 		nom := r.FormValue("nom")
 		prenom := r.FormValue("prenom")
 		password := r.FormValue("password")
@@ -34,16 +31,14 @@ func Enregistrement(w http.ResponseWriter, r *http.Request) {
 		username := r.FormValue("username")
 		if username == "" || email == "" || password == "" || confirme_password == "" || nom == "" || prenom == "" {
 			structure.TplData.ProcessMessage = "Entrez bien toute les informations"
-			fmt.Println(structure.TplData.ProcessMessage)
 			return
 		} else if password != confirme_password {
 			structure.TplData.ProcessMessage = "Mot de passe non identique"
-			fmt.Println(structure.TplData.ProcessMessage)
 			return
 		}
 		mdpHashed, err := HashPassword(password)
 		if err != nil {
-			print(err)
+			logger.Error("password can't be hashed", zap.Error(err))
 		}
 
 		_, errAddUser := data.Bd.Exec("INSERT INTO Utilisateurs (username, mdp,nom,prenom,email) VALUES (?, ?, ?, ?, ?)", username, mdpHashed, nom, prenom, email)
@@ -51,26 +46,24 @@ func Enregistrement(w http.ResponseWriter, r *http.Request) {
 		if errAddUser != nil {
 			switch errAddUser.Error() {
 			case "UNIQUE constraint failed: Utilisateurs.email":
-				structure.TplData.ProcessMessage = "email déja utilisé"
-				fmt.Println(structure.TplData.ProcessMessage)
+				structure.TplData.ProcessMessage = "email déja utilisé" + errAddUser.Error()
 			case "UNIQUE constraint failed: Utilisateurs.username":
-				structure.TplData.ProcessMessage = "nom utilisateur déja utilisé"
-				fmt.Println(structure.TplData.ProcessMessage)
+				structure.TplData.ProcessMessage = "nom utilisateur déja utilisé" + errAddUser.Error()
 			default:
 				structure.TplData.ProcessMessage = "Sql error : " + errAddUser.Error() + "\n"
-				fmt.Println(structure.TplData.ProcessMessage)
 			}
 
 			return
 		} else {
 			structure.TplData.ProcessMessage = "You have been registered. Please log in"
-			fmt.Println(structure.TplData.ProcessMessage)
-			return
+			session.Values["username"] = username
+			session.Save(r, w)
+			logger.Info("User" + username + "logged in successfully")
+			http.Redirect(w, r, "/", http.StatusSeeOther)
 		}
 
 	} else {
 		structure.TplData.ProcessMessage = "Entrez bien toute les informations"
-		fmt.Println(structure.TplData.ProcessMessage)
 		return
 	}
 

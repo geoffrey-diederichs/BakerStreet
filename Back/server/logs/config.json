@@ -1,0 +1,14 @@
+{
+    "level": "debug",
+    "encoding": "json",
+    "disableCaller":     true,                               
+    "disableStacktrace": true,                              
+    "outputPaths": ["stdout", "./tmp/logs"],
+    "errorOutputPaths": ["stderr","./tmp/errors"],
+    "encoderConfig": {
+      "levelKey": "level",
+      "time": "time",
+      "messageKey": "message",
+      "levelEncoder": "lowercase"
+    }
+}

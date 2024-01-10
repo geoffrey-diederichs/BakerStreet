@@ -2,16 +2,18 @@ package authentification
 
 import (
 	data "OSINT/Back/server/data"
+	logs "OSINT/Back/server/logs"
 	structure "OSINT/Back/server/structure"
 	"database/sql"
-	"fmt"
-	"log"
 	"net/http"
 
 	_ "github.com/mattn/go-sqlite3"
+	"go.uber.org/zap"
 
 	"golang.org/x/crypto/bcrypt"
 )
+
+var logger = logs.GetLog(logs.GetLogConfig())
 
 // check virifie les identifiant de l'uilisateur
 func Login(w http.ResponseWriter, r *http.Request) {
@@ -31,7 +33,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 		// Rediriger l'utilisateur vers la page d'acceuil s'il est connecté
 		structure.TplData.ProcessMessage = "Vous êtes déja connecté en tant que " + session.Values["username"].(string) + " !"
-		fmt.Println(structure.TplData.ProcessMessage)
+		logger.Info(structure.TplData.ProcessMessage)
 
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
@@ -49,21 +51,17 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			if err == sql.ErrNoRows {
 				// L'utilisateur n'existe pas dans la base de données
-				structure.TplData.ProcessMessage = "Utilisateur inconnu"
-				fmt.Println(structure.TplData.ProcessMessage)
+				logger.Info("Utilisateur inconnu")
 				return // Ajout d'un return pour éviter de continuer l'exécution
 			}
 			// Autres erreurs
-			log.Println("Erreur lors de la récupération du mot de passe :", err)
-			structure.TplData.ProcessMessage = "Erreur interne"
-			fmt.Println(structure.TplData.ProcessMessage)
+			logger.Error("Erreur lors de la récupération du mot de passe :", zap.Error(err))
 			return
 		}
 
 		if err != nil {
 			// retourne faux
-			structure.TplData.ProcessMessage = "Mot de passe impossible à hasher"
-			fmt.Println(structure.TplData.ProcessMessage)
+			logger.Error("Mot de passe impossible à hasher", zap.Error(err))
 			return
 		}
 		// si test est égal à hash
@@ -73,19 +71,17 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		if ComparePassword(MdpHash, mdp) != nil {
 			// Le mot de passe fourni ne correspond pas au hash stocké dans la base de données
 			structure.TplData.ProcessMessage = "Mot de passe incorrect"
-			fmt.Println(structure.TplData.ProcessMessage)
 			return
 		} else {
 			session.Values["username"] = username
 			session.Save(r, w)
 			structure.TplData.ProcessMessage = "Vous êtes maintenant connecté en tant que " + username + " !"
-			fmt.Println(structure.TplData.ProcessMessage)
+			logger.Info("User" + username + "logged in successfully")
 			http.Redirect(w, r, "/", http.StatusSeeOther)
 		}
 
 	} else {
 		structure.TplData.ProcessMessage = "Entrez bien toute les informations"
-		fmt.Println(structure.TplData.ProcessMessage)
 
 	}
 }

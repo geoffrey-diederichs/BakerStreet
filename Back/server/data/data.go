@@ -1,13 +1,15 @@
 package data
 
 import (
+	logs "OSINT/Back/server/logs"
 	"database/sql"
-	"fmt"
-	"log"
 
 	"github.com/gorilla/sessions"
 	_ "github.com/mattn/go-sqlite3"
+	"go.uber.org/zap"
 )
+
+var logger = logs.GetLog(logs.GetLogConfig())
 
 // Var pour définir la base de donée
 var Bd, err = OuvrirBaseDonnee("./data/db.sqlite")
@@ -19,9 +21,9 @@ var Store = sessions.NewCookieStore([]byte("Motdepassesupersecurisealamortquitu"
 func OuvrirBaseDonnee(chemin string) (*sql.DB, error) {
 	bd, err := sql.Open("sqlite3", chemin)
 	if err != nil {
-		log.Fatal(err)
+		logger.Error("Failed to open db : ", zap.Error(err))
 	}
-	fmt.Println("connexion a la base de donnée réussite")
+	logger.Info("connexion a la base de donnée réussite")
 	_, err = bd.Exec("SELECT * FROM Utilisateurs")
 	if err != nil {
 		// Si la table n'existe pas, la créer
@@ -36,12 +38,12 @@ func OuvrirBaseDonnee(chemin string) (*sql.DB, error) {
 	icon TEXT
 );`)
 		if err != nil {
-			fmt.Println(err)
+			logger.Error("Failed to create db", zap.Error(err))
 			return bd, err
 		}
-		fmt.Println("Table Utilisateurs créée avec succès.")
+		logger.Info("Table Utilisateurs créée avec succès.")
 	} else {
-		fmt.Println("La table Utilisateurs existe déjà.")
+		logger.Info("La table Utilisateurs existe déjà.")
 	}
 
 	return bd, err
