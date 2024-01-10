@@ -1,0 +1,44 @@
+body {
+    font-family: Montserrat, Helvetica, sans-serif;
+    background: #0D1B2B;
+  }
+
+.parameters-title {
+    color: antiquewhite;
+    font-size: xx-large;
+
+  }
+
+.language-title {
+    color: antiquewhite;
+    font-size: x-large;
+    position: relative;
+    display: inline-block;
+}
+
+.theme-title {
+    color: antiquewhite;
+    font-size: x-large;
+}
+
+.support-title {
+    color: antiquewhite;
+    font-size: x-large;
+}
+
+.language-under{
+  display: none;
+    background-color: skyblue;
+    min-width: 200px;
+}
+
+.language-under li{
+  color: blue;
+    padding: 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.language-title:hover .language-under{
+  display: block;
+}
