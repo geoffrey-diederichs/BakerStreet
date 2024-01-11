@@ -22,9 +22,9 @@ img{
 
 .reference{
     background-color: rgb(172, 172, 172);
-    width: 600px;
-    margin-top: 300px;
-    margin-left: 200px;
+    width: 32.2%;
+    margin-top: 15%;
+    margin-left: 5%;
     border-radius: 20px;
 }
 
@@ -38,12 +38,56 @@ img{
 
 .reference2{
     background-color: rgb(151, 151, 151);
-    width: 600px;
-    margin-top: -700px;
-    margin-left: 1000px;
+    width: 32.2%;
+    margin-top: -35%;
+    margin-left: 55%;
     border-radius: 20px;
 }
 
 .ref-image2{
     width: 600px;
+}
+
+.reference3{
+    margin-top: 200px;
+}   
+
+.sous-cat{
+    background-color: rgb(172, 172, 172);
+    width: 40%;
+    margin-top: 5%;
+    margin-left: 5%;
+    border-radius: 20px;
+}   
+
+.sous-cat2{
+    background-color: rgb(172, 172, 172);
+    width: 40%;
+    margin-top: 5%;
+    margin-left: 5%;
+    border-radius: 20px;
+}
+
+.sous-cat3{
+    background-color: rgb(151, 151, 151);
+    width: 40%;
+    margin-top: -18%;
+    margin-left: 50%;
+    border-radius: 20px;
+}
+
+.sous-cat4{
+    background-color: rgb(151, 151, 151);
+    width: 40%;
+    margin-top: 6%;
+    margin-left: 50%;
+    border-radius: 20px;
+}
+
+.text-cat{
+    font-size: x-large;
+}
+
+.titre-3{
+    color: white;
 }
