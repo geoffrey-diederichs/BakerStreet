@@ -6,7 +6,7 @@ Script python pour récupérer des informations publiques sur une personne donn�
 
 Le script est dockerisé : 
 
-``console
+```console
 $ cd Script/
 
 $ docker build . -t osint
