@@ -1,16 +1,25 @@
 # Osint
 
-## Informations à retrouver
+Script python pour récupérer des informations publiques sur une personne donnée.
 
-Nom
-Prénom
-Numéro de téléphone
-Email
-Réseaux sociaux :
-- Facebook
-- Instagram
-- Tiktok
-- Twitter
-- Github
-- Discord
-- Google
+## Utilisation
+
+Le script est dockerisé : 
+
+``console
+$ cd Script/
+
+$ docker build . -t osint
+
+$ docker run osint
+```
+
+Ou bien vous pouvez le lancer sur votre ordinateur :
+
+```console
+$ cd Script/
+
+$ pip install -r requirements.txt
+
+$ python3 osint.py
+```
