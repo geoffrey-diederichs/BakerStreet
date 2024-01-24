@@ -5,7 +5,6 @@ import (
 	structure "OSINT/Back/server/structure"
 	"net/http"
 
-	_ "github.com/mattn/go-sqlite3"
 	"go.uber.org/zap"
 )
 
@@ -29,7 +28,10 @@ func Enregistrement(w http.ResponseWriter, r *http.Request) {
 		email := r.FormValue("email")
 		confirme_password := r.FormValue("confirme_password")
 		username := r.FormValue("username")
-		if username == "" || email == "" || password == "" || confirme_password == "" || nom == "" || prenom == "" {
+		age := r.FormValue("age")
+		icon := r.FormValue("icon")
+		if username == "" || email == "" || password == "" || confirme_password == "" || nom == "" || prenom == "" || age == "" {
+			logger.Info("Entrez bien toute les informations")
 			structure.TplData.ProcessMessage = "Entrez bien toute les informations"
 			return
 		} else if password != confirme_password {
@@ -41,7 +43,7 @@ func Enregistrement(w http.ResponseWriter, r *http.Request) {
 			logger.Error("password can't be hashed", zap.Error(err))
 		}
 
-		_, errAddUser := data.Bd.Exec("INSERT INTO Utilisateurs (username, mdp,nom,prenom,email) VALUES (?, ?, ?, ?, ?)", username, mdpHashed, nom, prenom, email)
+		_, errAddUser := data.Bd.Exec("INSERT INTO Utilisateurs (username, mdp,nom,prenom,email,age,icon) VALUES (?, ?, ?, ?, ?,?,?)", username, mdpHashed, nom, prenom, email, age, icon)
 
 		if errAddUser != nil {
 			switch errAddUser.Error() {
@@ -51,14 +53,15 @@ func Enregistrement(w http.ResponseWriter, r *http.Request) {
 				structure.TplData.ProcessMessage = "nom utilisateur déja utilisé" + errAddUser.Error()
 			default:
 				structure.TplData.ProcessMessage = "Sql error : " + errAddUser.Error() + "\n"
+				logger.Debug("Sql error : ", zap.Error(errAddUser))
 			}
 
 			return
 		} else {
-			structure.TplData.ProcessMessage = "You have been registered. Please log in"
+			structure.TplData.ProcessMessage = "Tu es mainentenant inscrit en tant que " + username + " !"
 			session.Values["username"] = username
 			session.Save(r, w)
-			logger.Info("User" + username + "logged in successfully")
+			logger.Info("User " + username + " registered successfully")
 			http.Redirect(w, r, "/", http.StatusSeeOther)
 		}
 

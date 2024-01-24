@@ -3,3 +3,75 @@
 {"level":"info","message":"La table Utilisateurs existe déjà."}
 {"level":"info","message":"logger construction succeeded"}
 {"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"Vous êtes déja connecté en tant que test6 !"}
+{"level":"info","message":"Usertest7logged in successfully"}
+{"level":"info","message":"Vous êtes déja connecté en tant que test7 !"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"Vous êtes déja connecté en tant que test7 !"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"error","message":"Failed to retrieve info user : ","error":"sql: no rows in result set"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"error","message":"Failed to retrieve info user : ","error":"sql: Scan error on column index 3, name \"age\": converting NULL to int is unsupported"}
+{"level":"error","message":"Failed to retrieve info user : ","error":"sql: Scan error on column index 3, name \"age\": converting NULL to int is unsupported"}
+{"level":"error","message":"Failed to retrieve info user : ","error":"sql: Scan error on column index 3, name \"age\": converting NULL to int is unsupported"}
+{"level":"error","message":"Failed to retrieve info user : ","error":"sql: Scan error on column index 3, name \"age\": converting NULL to int is unsupported"}
+{"level":"error","message":"Failed to retrieve info user : ","error":"sql: Scan error on column index 3, name \"age\": converting NULL to int is unsupported"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"error","message":"Failed to retrieve info user : ","error":"sql: Scan error on column index 3, name \"age\": converting NULL to int is unsupported"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"Usertest9logged in successfully"}
+{"level":"info","message":"Vous êtes déja connecté en tant que test9 !"}

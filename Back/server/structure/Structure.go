@@ -4,11 +4,11 @@ var TplData TemplateData
 
 type Utilisateurs struct {
 	ID     int
-	Pseudo string
+	Username string
 	Mdp    string
 	Prenom string
 	Nom    string
-	Mail   string
+	Email   string
 	Age    int
 	Icon   string
 }

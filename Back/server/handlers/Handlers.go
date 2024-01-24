@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	account "OSINT/Back/server/account"
 	auth "OSINT/Back/server/authentification"
 	logs "OSINT/Back/server/logs"
 	structure "OSINT/Back/server/structure"
@@ -63,5 +64,12 @@ func LogoutHandler(w http.ResponseWriter, r *http.Request) {
 
 func SearchHandler(w http.ResponseWriter, r *http.Request) {
 	// input := r.FormValue("input")
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+
+}
+func AccountHandler(w http.ResponseWriter, r *http.Request) {
+	account.GetUser(w, r)
+	errTpl := tpl.ExecuteTemplate(w, "account.html", structure.TplData)
+	if errTpl != nil {
+		logger.Error("", zap.Error(errTpl))
+	}
 }
