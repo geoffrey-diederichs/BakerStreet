@@ -24,7 +24,7 @@
  .right {
     height: 100%;
     width: 35%;
-    background-color: red;
+    /* background-color: red; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -110,5 +110,16 @@
     max-height: 100%;
     object-fit: contain;
 }
+
+.form-group {
+    position: relative; /* Établit un contexte de positionnement pour les éléments absolus à l'intérieur */
+    display: flex;
+    margin: 5%;
+}
+
+.input-group-btn {
+    margin-left: -10%;
+}
+
 
 
