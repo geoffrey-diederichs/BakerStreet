@@ -65,7 +65,7 @@ nav a {
   
 .navlinks-container a {
   margin: 0 30px;
-  font-size: 20px;
+  /* font-size: 20px; */
   font-weight: 500;
   text-decoration: none;
   color: #dadada;
@@ -89,7 +89,6 @@ nav a {
 .navlinks-container a:hover:after {
   width: 100%;
 }
-  
 
 .nav-authentication {
   margin-left: auto;
@@ -104,6 +103,14 @@ nav a {
   border-radius: 5px;
   cursor: pointer;
   border: none;
+  transition: transform 0.3s ease;
+}
+
+.sign-btns button:hover {
+  background-color: #B0B0B0; /* Couleur de fond plus foncée au survol */
+  color: #fff;
+  /* transform: scale(1.05); */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Ombre portée plus prononcée */
 }
 
 .sign-btns button:nth-child(2) {
