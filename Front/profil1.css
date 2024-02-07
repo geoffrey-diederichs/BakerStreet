@@ -55,6 +55,7 @@
     border-radius: 30px;
     margin-right: 15%;
     overflow-y: auto;
+    box-sizing: border-box;
 }
 
 .title2 {
@@ -94,13 +95,17 @@
 
 .detail-content {
     display: none; /* Ou 'block' si actif, selon ta logique JS */
-    width: 100%; /* Prend la largeur du parent */
+    width: 100%;
     min-height: 100px; /* Hauteur minimale au départ */
     max-height: 200px; /* Hauteur maximale avant d'afficher la barre de défilement */
     /* Pas de hauteur fixe ici pour permettre au contenu de pousser les éléments en dessous */
-    overflow-y: auto; /* Permet un défilement si le contenu est trop long */
+    /* overflow-y: auto; Permet un défilement si le contenu est trop long */
     box-sizing: border-box; /* Assure que padding et border sont inclus dans la largeur */
     /* Ajoute tes styles de padding, margin, etc. ici */
+    /* background-color: red; */
+    padding: 10%;
+    word-wrap: break-word; /* Cela casse le mot long à la fin de la ligne et passe à la ligne suivante */
+    word-break: break-all;
   }
   
   /* Tu peux ajouter une transition pour un effet de déroulement */
