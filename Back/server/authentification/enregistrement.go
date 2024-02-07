@@ -4,9 +4,16 @@ import (
 	data "OSINT/Back/server/data"
 	structure "OSINT/Back/server/structure"
 	"net/http"
+	"net/mail"
+	"strconv"
 
 	"go.uber.org/zap"
 )
+
+func isEmailValid(e string) bool {
+_, err := mail.ParseAddress(e)
+return err == nil
+}
 
 func Enregistrement(w http.ResponseWriter, r *http.Request) {
 	session, err := data.Store.Get(r, "data")
@@ -28,29 +35,58 @@ func Enregistrement(w http.ResponseWriter, r *http.Request) {
 		email := r.FormValue("email")
 		confirme_password := r.FormValue("confirme_password")
 		username := r.FormValue("username")
-		age := r.FormValue("age")
+		ageStr := r.FormValue("age")
 		icon := r.FormValue("icon")
-		if username == "" || email == "" || password == "" || confirme_password == "" || nom == "" || prenom == "" || age == "" {
+		if username == "" || email == "" || password == "" || confirme_password == "" || nom == "" || prenom == "" || ageStr == "" {
 			logger.Info("Entrez bien toute les informations")
 			structure.TplData.ProcessMessage = "Entrez bien toute les informations"
 			return
-		} else if password != confirme_password {
+		}
+		if password != confirme_password {
 			structure.TplData.ProcessMessage = "Mot de passe non identique"
+			return
+		}
+		if len(password) < 8 {
+			structure.TplData.ProcessMessage = "Mot de passe trop court"
+			return
+		}
+		if len(username) < 4 {
+			structure.TplData.ProcessMessage = "Nom d'utilisateur trop court"
+			return
+		}
+		if len(nom) < 2 {
+			structure.TplData.ProcessMessage = "Nom trop court"
+			return
+		}
+		if len(prenom) < 2 {
+			structure.TplData.ProcessMessage = "Prenom trop court"
+			return
+		}
+
+		age, err := strconv.Atoi(ageStr)
+		if err != nil {
+			structure.TplData.ProcessMessage = "Merci d'entrer un age valide"
+			logger.Error("Age is not an integer", zap.String("age", ageStr), zap.Error(err))
 			return
 		}
 		mdpHashed, err := HashPassword(password)
 		if err != nil {
 			logger.Error("password can't be hashed", zap.Error(err))
 		}
-
+		if !isEmailValid(username + "<" + email +">") {
+			structure.TplData.ProcessMessage = "Email invalide"
+			return
+		}
 		_, errAddUser := data.Bd.Exec("INSERT INTO Utilisateurs (username, mdp,nom,prenom,email,age,icon) VALUES (?, ?, ?, ?, ?,?,?)", username, mdpHashed, nom, prenom, email, age, icon)
 
 		if errAddUser != nil {
 			switch errAddUser.Error() {
 			case "UNIQUE constraint failed: Utilisateurs.email":
 				structure.TplData.ProcessMessage = "email déja utilisé" + errAddUser.Error()
+				logger.Debug("email déja utilisé", zap.Error(errAddUser))
 			case "UNIQUE constraint failed: Utilisateurs.username":
 				structure.TplData.ProcessMessage = "nom utilisateur déja utilisé" + errAddUser.Error()
+				logger.Debug("nom déja utilisé", zap.Error(errAddUser))
 			default:
 				structure.TplData.ProcessMessage = "Sql error : " + errAddUser.Error() + "\n"
 				logger.Debug("Sql error : ", zap.Error(errAddUser))

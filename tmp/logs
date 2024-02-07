@@ -75,3 +75,60 @@
 {"level":"info","message":"logger construction succeeded"}
 {"level":"info","message":"Usertest9logged in successfully"}
 {"level":"info","message":"Vous êtes déja connecté en tant que test9 !"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"User test10 registered successfully"}
+{"level":"info","message":"Vous êtes déja connecté en tant que test10 !"}
+{"level":"info","message":"User test11 registered successfully"}
+{"level":"info","message":"Vous êtes déja connecté en tant que test11 !"}
+{"level":"info","message":"Usertest11logged in successfully"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"Vous êtes déja connecté en tant que test11 !"}
+{"level":"info","message":"Usertest11logged in successfully"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"debug","message":"email déja utilisé","error":"UNIQUE constraint failed: Utilisateurs.email"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"debug","message":"email déja utilisé","error":"UNIQUE constraint failed: Utilisateurs.email"}
+{"level":"debug","message":"nom déja utilisé","error":"UNIQUE constraint failed: Utilisateurs.username"}
+{"level":"debug","message":"email déja utilisé","error":"UNIQUE constraint failed: Utilisateurs.email"}
+{"level":"info","message":"User test112 registered successfully"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"User test14 registered successfully"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"error","message":"Age is not an integer","age":"blabla","error":"strconv.Atoi: parsing \"blabla\": invalid syntax"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"User test16 registered successfully"}

@@ -34,7 +34,7 @@ func OuvrirBaseDonnee(chemin string) (*sql.DB, error) {
 	nom TEXT ,
 	prenom TEXT ,
 	email TEXT UNIQUE NOT NULL,
-	age INTEGER,
+	age INT,
 	icon TEXT
 );`)
 		if err != nil {

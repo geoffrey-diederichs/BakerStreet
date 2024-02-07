@@ -33,8 +33,6 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 		// Rediriger l'utilisateur vers la page d'acceuil s'il est connecté
 		structure.TplData.ProcessMessage = "Vous êtes déja connecté en tant que " + session.Values["username"].(string) + " !"
-		logger.Info(structure.TplData.ProcessMessage)
-
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
