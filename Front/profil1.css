@@ -53,7 +53,7 @@
     width: 60%;
     background-color: #1B263B;
     border-radius: 30px;
-    margin-right: 25%;
+    margin-right: 15%;
 }
 
 .title2 {
@@ -94,14 +94,17 @@
     height: 80%;
     width: 80%;
     background-color: #1B263B;
+    margin-right: 20%;
+    border-radius: 10px;
 }
 
 .picture {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 20%;
-    width: 20%;
+    height: 40%;
+    width: 40%;
+    margin-bottom: 5%;
     /* background-color: #fff; */
 }
 
@@ -112,14 +115,56 @@
 }
 
 .form-group {
-    position: relative; /* Établit un contexte de positionnement pour les éléments absolus à l'intérieur */
+    /* position: relative; Établit un contexte de positionnement pour les éléments absolus à l'intérieur */
     display: flex;
-    margin: 5%;
+    margin: 7%;
+    height: 20%;
+    color: #fff;
 }
 
 .input-group-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
     margin-left: -10%;
+    background-color: #555; /* Couleur de fond des boutons, à ajuster selon le design */
+    border: none; /* Supprime les bordures des boutons */
+    color: #fff; /* Couleur du texte des boutons */
+    padding: 10px;
+    cursor: pointer;
+    height: 80%;
+    border-radius: 5px;
 }
 
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    background-color: transparent; /* Rend le fond des inputs transparent */
+    border: none; /* Supprime les bordures par défaut */
+    border-bottom: 2px solid #fff; /* Ajoute une bordure en bas de couleur blanche */
+    color: #fff; /* Couleur du texte dans les inputs pour qu'il soit visible sur le fond */
+    padding: 10px; /* Ajoute un peu d'espace à l'intérieur des inputs */
+    margin-right: 10px; /* Espacement entre les inputs et les boutons */
+    width: 100%; /* Assure que les inputs prennent toute la largeur disponible */
+    outline: none;
+}
+
+/* input[type="submit"],
+input[type="button"],
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+} */
+
+.text1 {
+    color: #fff;
+}
 
 
