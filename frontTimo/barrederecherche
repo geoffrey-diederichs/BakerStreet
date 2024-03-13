@@ -1,0 +1,40 @@
+<div class="search-container"> 
+              <input type="search" placeholder="Search for files, plugins, and creators" class="searchbar">
+              <button class="search-button">
+                  <img src="rechercher.png" alt="Search" class="search-icon">
+              </button>
+          </div> 
+
+
+
+          .search-container {
+            position: relative;
+            width: 400px; /* Largeur de la barre de recherche */
+            margin: auto; /* Centrer la barre de recherche horizontalement */
+        }
+        
+        .searchbar {
+            width: 100%; /* Utilisez 100% pour occuper toute la largeur du container */
+            padding: 12px 40px 12px 20px; /* Ajustez le padding pour l'icône de recherche */
+            height: 40px; /* Hauteur de la barre de recherche */
+            border-radius: 20px; /* Arrondir les bords */
+            border: 2px solid #dfe1e5; /* Couleur de bordure de la barre de recherche */
+            background-color: #fff; /* Couleur de fond de la barre de recherche */
+            font-size: 16px; /* Taille de la police */
+        }
+        
+        .search-button {
+            position: absolute;
+            right: 7px; /* Ajustez cela pour que l'icône soit bien placée */
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        
+        .search-icon {
+            width: 24px; /* Ajustez selon la taille de votre icône */
+            height: auto;
+        }

@@ -1,0 +1,188 @@
+.space {
+    height: 131px;
+    width: 100%;
+}
+
+.main-content {
+    height: 650px;
+    width: 100%;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.left {
+    height: 100%;
+    width: 60%;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ .right {
+    height: 100%;
+    width: 35%;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title1 {
+    display: flex;
+    margin-left: 10%;
+    /* background-color: black; */
+    height: 4%;
+    width: 80%;
+    color: #fff;
+}
+
+.historical {
+    /* background-color: aqua; */
+    width: 100%;
+    height: 80%;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    width: 60%;
+    background-color: #1B263B;
+    border-radius: 30px;
+    margin-right: 15%;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.title2 {
+    /* display: flex; */
+    /* margin-left: 5%; */
+    /* background-color: black; */
+    height: 4%;
+    width: 100%;
+    color: #fff;
+    margin-bottom: 55%;
+}
+
+.title2 h2 {
+    margin-left: 8%;
+}
+
+.item {
+    display: flex; /* Aligner les éléments enfants horizontalement */
+    align-items: center; /* Centrer les éléments enfants verticalement */
+    gap: 20px; /* Espace entre l'icône et le texte */
+    margin: 5%;
+    background-color: #0D1B2B ;
+    min-height: 250%;
+    height: auto;
+    border-radius: 20px;
+}
+
+.item:hover {
+    background-color: #34495e; /* Un léger changement de fond au survol */
+  }
+
+.icon {
+    height: 20px; /* ou la taille désirée pour votre icône */
+    width: auto; /* pour conserver le ratio de l'image */
+    margin-left: 3%;
+}
+
+.detail-content {
+    display: none; /* Ou 'block' si actif, selon ta logique JS */
+    width: 100%;
+    min-height: 100px; /* Hauteur minimale au départ */
+    max-height: 200px; /* Hauteur maximale avant d'afficher la barre de défilement */
+    /* Pas de hauteur fixe ici pour permettre au contenu de pousser les éléments en dessous */
+    /* overflow-y: auto; Permet un défilement si le contenu est trop long */
+    box-sizing: border-box; /* Assure que padding et border sont inclus dans la largeur */
+    /* Ajoute tes styles de padding, margin, etc. ici */
+    /* background-color: red; */
+    padding: 10%;
+    word-wrap: break-word; /* Cela casse le mot long à la fin de la ligne et passe à la ligne suivante */
+    word-break: break-all;
+  }
+  
+  /* Tu peux ajouter une transition pour un effet de déroulement */
+  .item.active .detail-content {
+    display: block;
+    max-height: 500px; /* Ou la hauteur maximale que tu souhaites */
+    overflow: hidden; /* Change à 'auto' si tu veux permettre le défilement */
+    transition: max-height 0.5s ease-in-out;
+  }
+  
+  .item.active .icon {
+    transform: rotate(180deg); /* Retourne l'icône pour indiquer que l'item est ouvert */
+    transition: transform 0.3s; /* Animation fluide pour la rotation de l'icône */
+  }
+
+.box1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80%;
+    width: 80%;
+    background-color: #1B263B;
+    margin-right: 20%;
+    border-radius: 10px;
+}
+
+.picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40%;
+    width: 40%;
+    margin-bottom: 5%;
+    /* background-color: #fff; */
+}
+
+.picture img {
+    max-width: 100%; 
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.form-group {
+    /* position: relative; Établit un contexte de positionnement pour les éléments absolus à l'intérieur */
+    display: flex;
+    margin: 7%;
+    height: 20%;
+    color: #fff;
+}
+
+.input-group-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-left: -35%;
+    background-color: #555; /* Couleur de fond des boutons, à ajuster selon le design */
+    border: none; /* Supprime les bordures des boutons */
+    color: #fff; /* Couleur du texte des boutons */
+    padding: 10px;
+    cursor: pointer;
+    height: 60%;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    background-color: transparent; /* Rend le fond des inputs transparent */
+    border: none; /* Supprime les bordures par défaut */
+    border-bottom: 2px solid #fff; /* Ajoute une bordure en bas de couleur blanche */
+    color: #fff; /* Couleur du texte dans les inputs pour qu'il soit visible sur le fond */
+    padding: 10px; /* Ajoute un peu d'espace à l'intérieur des inputs */
+    /* margin-right: 10px; Espacement entre les inputs et les boutons */
+    width: 100%; /* Assure que les inputs prennent toute la largeur disponible */
+    outline: none;
+}
