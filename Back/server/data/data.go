@@ -28,22 +28,35 @@ func OuvrirBaseDonnee(chemin string) (*sql.DB, error) {
 	if err != nil {
 		// Si la table n'existe pas, la créer
 		_, err := bd.Exec(`CREATE TABLE Utilisateurs (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    username TEXT UNIQUE NOT NULL,
-    mdp TEXT NOT NULL,
-	nom TEXT ,
-	prenom TEXT ,
-	email TEXT UNIQUE NOT NULL,
-	age INT,
-	icon TEXT
-);`)
+		id INTEGER PRIMARY KEY AUTOINCREMENT,
+		username TEXT UNIQUE NOT NULL,
+		mdp TEXT NOT NULL,
+		nom TEXT ,
+		prenom TEXT ,
+		email TEXT UNIQUE NOT NULL,
+		age INT,
+		icon TEXT
+		);`)
 		if err != nil {
-			logger.Error("Failed to create db", zap.Error(err))
+			logger.Error("Failed to create user table", zap.Error(err))
 			return bd, err
 		}
 		logger.Info("Table Utilisateurs créée avec succès.")
+		_, err = bd.Exec(`CREATE TABLE History (
+		id INT AUTO_INCREMENT PRIMARY KEY,
+		userId INT NOT NULL,
+		username TEXT NOT NULL,
+		research VARCHAR(255) NOT NULL,
+		timestamp DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+		FOREIGN KEY (userId) REFERENCES Utilisateurs(id)
+		);`)
+		if err != nil {
+			logger.Error("Failed to create history table", zap.Error(err))
+			return bd, err
+		}
+		logger.Info("Table Historique créée avec succès.")
 	} else {
-		logger.Info("La table Utilisateurs existe déjà.")
+		logger.Info("La table Historique existe déjà.")
 	}
 
 	return bd, err

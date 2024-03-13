@@ -6,7 +6,6 @@ import (
 	"net/http"
 	"net/mail"
 	"strconv"
-
 	"go.uber.org/zap"
 )
 
@@ -28,7 +27,6 @@ func Enregistrement(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if r.Method == "POST" {
-
 		nom := r.FormValue("nom")
 		prenom := r.FormValue("prenom")
 		password := r.FormValue("password")
