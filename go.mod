@@ -3,6 +3,7 @@ module OSINT
 go 1.21.3
 
 require (
+	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/gorilla/securecookie v1.1.2 // indirect
 	github.com/gorilla/sessions v1.2.2 // indirect
 	github.com/mattn/go-sqlite3 v1.14.18 // indirect
