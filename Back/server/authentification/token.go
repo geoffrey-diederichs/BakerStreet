@@ -11,7 +11,7 @@ type CustomClaims struct {
 }
 
 // Function to generate a new JWT token.
-func GenerateToken(userID string, secretKey []byte) (string, error) {
+func GenerateTokenWithClaims(userID string, secretKey []byte) (string, error) {
     // Set up our custom claims
     claims := CustomClaims{
         UserID: userID,
@@ -31,4 +31,24 @@ func GenerateToken(userID string, secretKey []byte) (string, error) {
     }
 
     return tokenString, nil
+}
+
+func GenerateToken()(string, error) {
+    var (
+        key []byte
+        t   *jwt.Token
+        s   string
+      )
+      
+    key,err := GenerateKey(32)
+    if err != nil {
+        return "error generating private key", err
+    }
+    t = jwt.New(jwt.SigningMethodHS256) 
+
+    s,err= t.SignedString(key)
+    if err != nil {
+        return "error signing the token", err
+    }
+    return s, nil
 }

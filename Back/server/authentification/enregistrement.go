@@ -46,8 +46,9 @@ func Enregistrement(w http.ResponseWriter, r *http.Request) {
 			structure.TplData.ProcessMessage = "Mot de passe non identique"
 			return
 		}
-		if len(password) < 8 {
-			structure.TplData.ProcessMessage = "Mot de passe trop court"
+		isPasswordValid, msgPasswordVerification := validatePassword(password)
+		if !isPasswordValid {
+			structure.TplData.ProcessMessage = msgPasswordVerification
 			return
 		}
 		if len(username) < 4 {
@@ -69,13 +70,26 @@ func Enregistrement(w http.ResponseWriter, r *http.Request) {
 			logger.Error("Age is not an integer", zap.String("age", ageStr), zap.Error(err))
 			return
 		}
-		mdpHashed, err := HashPassword(password)
-		if err != nil {
-			logger.Error("password can't be hashed", zap.Error(err))
-		}
+		
 		if !isEmailValid(username + "<" + email +">") {
 			structure.TplData.ProcessMessage = "Email invalide"
 			return
+		}
+
+		token,err := GenerateToken()
+		if err != nil {
+			structure.TplData.ProcessMessage = "Erreur le mail de vérification n'a pas pu être envoyé, veuillez réessayer l'inscription"
+			return
+		}
+		
+		if sendVerificationEmail(email, token) != nil {	
+			structure.TplData.ProcessMessage = "Erreur le mail de vérification n'a pas pu être envoyé, veuillez réessayer l'inscription"
+			return
+		}
+
+		mdpHashed, err := HashPassword(password)
+		if err != nil {
+			logger.Error("password can't be hashed", zap.Error(err))
 		}
 		_, errAddUser := data.Bd.Exec("INSERT INTO Utilisateurs (username, mdp,nom,prenom,email,age,icon) VALUES (?, ?, ?, ?, ?,?,?)", username, mdpHashed, nom, prenom, email, age, icon)
 
@@ -94,7 +108,7 @@ func Enregistrement(w http.ResponseWriter, r *http.Request) {
 
 			return
 		} else {
-			structure.TplData.ProcessMessage = "Tu es mainentenant inscrit en tant que " + username + " !"
+			structure.TplData.ProcessMessage = "Tu es maintenant inscrit en tant que " + username + " !"
 			session.Values["username"] = username
 			session.Save(r, w)
 			logger.Info("User " + username + " registered successfully")
