@@ -30,7 +30,9 @@ func GetHistory(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "GET" {
 		var research string
 		var timestamp time.Time
-		err := data.Bd.QueryRow("SELECT research,timestamp FROM History WHERE username = ?", username).Scan(&research, &timestamp)
+
+		// err := data.Bd.QueryRow("SELECT research,timestamp FROM History WHERE userId = ?", username).Scan(&research, &timestamp)
+		// err := data.Bd.QueryRow("SELECT research,timestamp FROM History WHERE userId = ?", username).Scan(&research, &timestamp)
 		if err != nil {
 			logger.Error("Failed to retrieve info user : ", zap.Error(err))
 		}
