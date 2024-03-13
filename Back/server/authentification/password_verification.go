@@ -20,8 +20,10 @@ func validatePassword(password string) (bool, string) {
     if !special.MatchString(password) {
         return false, "Le mot de passe doit contenir au moins un caractère spécial."
     }
+    if len(password) < 8 {
+        return false, "Le mot de passe doit contenir au moins 8 caractères."
+    }
 
-    // Le mot de passe passe toutes les vérifications
     return true, ""
 }
 
