@@ -3,42 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login Page</title>
     <!-- Include Tailwind CSS via CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kokoro&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="/Front/styles/login.css">
 </head>
 <body>
 
     <!-- Logo and Baker Street at the top with some padding -->
     <div class="top-container">
-        <img src="bakerstreet.png" alt="Baker Street Logo" class="logo1">
-        <!-- <div class="title">BAKER STREET</div> -->
+        <img src="/Front/assets/img/Ellipse 1 (1).png" alt="Baker Street Logo" class="logo">
+        <div class="title">BAKER STREET</div>
     </div>
     
     <div class="main-container">
+        {{if .ProcessMessage }} 
+        <div>{{.ProcessMessage}}</div>
+        {{end}} 
         <div class="form-container">
 
             <!-- Logo and title -->
             <div class="header">
-                <img src="Ellipse 1 (1).png" alt="Baker Street Logo" class="logo">
+                <img src="/Front/assets/img/Ellipse 1 (1).png" alt="Baker Street Logo" class="logo">
                 <h1>S'enregistrer</h1>
             </div>
 
             <!-- Form fields -->
-            <form action="your_action_url" method="post">
+            <form action="/Authentification" method="post">
                 
                 <div class="input-container">
-                    <label for="email">Email</label>
-                    <input type="text" id="email" name="email" >
+                    <label for="username">Username</label>
+                    <input type="text" name="username" placeholder="Entrer nom utilisateur">
                 </div>
                 <div class="input-container">
                     <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password">
+                    <input type="text" name="password" placeholder="Entrer le mot de passe">
                 </div>
-                <div class="checkbox-container" >
-                    <input type="checkbox" id="remember-me" name="remember-me" >
+                <div class="checkbox-container" style="display: flex; align-items: center;">
+                    <input type="checkbox" id="remember-me" name="remember-me" style="margin-right: 5px;">
                     <label for="remember-me">souviens-toi de moi</label>
                 </div>
                 <!-- Submit button -->

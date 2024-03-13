@@ -1,5 +1,5 @@
 body {
-    background-color: #0D1B2B;
+    background-color: #7C90AD;
     font-family: 'Kokoro', sans-serif;
     height: 100vh;
     display: flex;
@@ -13,8 +13,6 @@ body {
     justify-content: start;
     width: 100%;
     padding: 6px;
-    /* margin-top: 0.5%;
-    margin-left: 0.5%; */
 }
 
 .logo {
@@ -23,18 +21,10 @@ body {
     margin-right: 16px;
 }
 
-.logo1 {
-    width: 250px;
-    margin-left: 1%;
-    margin-top: 0.5%;
-    /* height: 100%; */  
-}
-
 .title {
     font-size: 2rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: #ffffff;
 }
 
 .main-container {
@@ -42,18 +32,15 @@ body {
     align-items: center;
     justify-content: center;
     height: 100%;
-    margin-bottom: 10%;
-    /* color: aqua; */
+    color: #2779bd;
 }
 
 .form-container {
-    background-color:#c2cbd6;
-    
+    background-color: #D9D9D9;
     padding: 24px;
-    border-radius: 20px;
+    border-radius: 70px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     width: 384px;
-    margin-top: -2%;
 }
 
 .header {
@@ -72,7 +59,7 @@ input {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 22px;
+    border-radius: 24px;
 }
 
 .button-container {
@@ -85,7 +72,7 @@ button {
     background-color: #3490dc;
     color: #fff;
     padding: 8px 16px;
-    border-radius: 16px;
+    border-radius: 24px;
     cursor: pointer;
     border: none;
     width: 45%;
@@ -115,7 +102,6 @@ a:hover {
     position: absolute; /* Ajouté pour le positionnement absolu */
     bottom: 2%; /* Distance par rapport au bas de la page */
     width: 100%; /* Prend toute la largeur de la fenêtre */
-    color: #fff;
 }
 
 #password {
@@ -144,22 +130,6 @@ a:hover {
 
 #email {
     background-image: url('email.png');  /* Remplacez par le chemin de votre image */
-    background-repeat: no-repeat;
-    background-position: calc(100% - 20px) center;
-    background-size: 20px; /* La taille de l'image, ajustez selon vos besoins */
-    padding-right: 30px;
-}
-
-#Nom {
-    background-image: url('carte-didentite.png');  /* Remplacez par le chemin de votre image */
-    background-repeat: no-repeat;
-    background-position: calc(100% - 20px) center;
-    background-size: 20px; /* La taille de l'image, ajustez selon vos besoins */
-    padding-right: 30px;
-}
-
-#Prenom {
-    background-image: url('carte-didentite.png');  /* Remplacez par le chemin de votre image */
     background-repeat: no-repeat;
     background-position: calc(100% - 20px) center;
     background-size: 20px; /* La taille de l'image, ajustez selon vos besoins */

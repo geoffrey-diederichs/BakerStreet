@@ -3,41 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baker Street</title>
     <link rel="stylesheet" href="/Front/styles/accueil.css">
+    <link rel="stylesheet" href="/Front/styles/header.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Flex:opsz,wght@8..144,100;8..144,300;8..144,500;8..144,700;8..144,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>BakerStreet</title>
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="/Front/assets/img/Ellipse 1 (1).png" alt="Baker Street Logo">
+    <nav>
+
+        <a href="#" class="nav-icon" aria-label="homepage" aria-current="page">
+          <img src="/Front/assets/img/logo sur coté noir.png" alt="chat icon" />
+        </a>
+  
+        <div class="main-navlinks">
+          <button type="button" class="hamburger"  aria-label="Toggle Navigation" aria-expanded="false">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          <div class="navlinks-container">
+            <a href="#" aria-current="page">Accueil</a>
+            <a href="#">parametres</a>
+          </div>
         </div>
-        <nav>
-            <a href="/">Accueil</a>
-            <a href="/Enregistrement">Register</a>
-            <a href="/Authentification">Login</a>
-            <a href="/Deconnexion">Logout</a>
-            <a href="#" class="profile">Profile</a>
-        </nav>
-        <!-- <div class="search-container">
-            <input type="search" placeholder="Search for files, plugins, and creators">
-            <button type="submit">🔍</button>
-        </div> -->
-    </header>
-    <main>
-        <div class="image">
-            <img src="logo_au_desu_noir.png" alt="Baker Street Logo">
+  
+        <div class="nav-authentication">
+          <a href="#" class="user-toggler" aria-label="Sign in page">
+            <img src="/Front/assets/img/utilisateur.png" alt="user icon" />
+          </a>
+          <div class="sign-btns">
+            <button type="button">S'enregistrer</button>
+            <button type="button">Se connecter</button>
+          </div>
         </div>
-        <div class="search-bar">
-            <input type="search" placeholder="Search for files, plugins, and creators" id="search-input">
-            <button type="submit" id="search-button">🔍</button>
+        
+      </nav>
+      <script src="/Front/js/script.js"></script>
+
+      <div> 
+            <img src="/Front/assets/img/logo au desu noir (1).png" alt="photo1">
+            <div class="searchbar-container">
+              <input type="search" placeholder="Search.." class="searchbar">
+              <!-- Utilise ton icône téléchargée ici -->
+              <img src="/Front/assets/img/rechercher.png" class="search-icon" alt="Search">
+            </div>
+            <!-- <input type="search" placeholder="Search.." class="searchbar"> -->
+      </div>
+      <div class="main-content">
+        
+        <div class="text">
+          <p>
+            Atténuez les risques et garantissez la conformité en toute confiance
+            Découvrez les capacités d’identification avancées avec Nexvision AI. Nos algorithmes intelligents analysent diverses sources de données, notamment les documents officiels, les plateformes en ligne et les réseaux sociaux, pour vérifier les identités, détecter les fraudes et évaluer l'intégrité. Bénéficiez de processus d’identification efficaces et fiables qui atténuent les risques et garantissent la conformité. Tirez parti de la puissance de Nexvision AI pour des solutions d’identification précises et sécurisées.
+          </p>
         </div>
-        <p id="search-tagline">MOTEUR DE RECHERCHE OSINT</p>
-        {{if .ProcessMessage }} 
-        <p >{{.ProcessMessage}}</p>
-        {{end}} 
-    </main>
-    <!-- <footer>
-        <p>MOTEUR DE RECHERCHE OSINT</p>
-    </footer> -->
+        <div class="picture">
+          <img src="/Front/assets/img/photo1.png" alt="picture" class="picture1">
+        </div>
+      </div>
+      <div class="main-content1">
+        <div class="picture_eyes">
+          <img src="/Front/assets/img/image 5.png" alt="picture" class="picture2">
+        </div>
+        <div class="texteyes">
+          <div class="width">
+            <p>
+              L’IA améliore l’intelligence géopolitique
+              Découvrez les capacités d’identification avancées avec Nexvision AI. Nos algorithmes intelligents analysent diverses sources de données, notamment les documents officiels, les plateformes en ligne et les réseaux sociaux, pour vérifier les identités, détecter les fraudes et évaluer l'intégrité. Bénéficiez de processus d’identification efficaces et fiables qui atténuent les risques et garantissent la conformité. Tirez parti de la puissance de Nexvision AI pour des solutions d’identification précises et sécurisées.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="textpost">
+        <h1>L’UTILITE D’UN MOTEUR DE  RECHERCHE OSINT </h1>
+      </div>
+      <div class="post">
+        <div class="frame1">
+          <div class="textframe1">
+            <h1 class="title1">Renseignement et sécurité nationale : </h1>
+            <p class="title2">
+              <br>
+              <br>
+              Les agences gouvernementales peuvent l'utiliser pour surveiller les menaces potentielles, détecter des activités criminelles ou terroristes, et rassembler des informations sur des acteurs hostiles.
+            </p>
+          </div>
+        </div>
+        <div class="frame2">
+          <div class="textframe2">
+            <h1 class="title3">Application de la loi :</h1>
+            <p class="title4">
+              <br>
+              <br>
+              Les forces de l'ordre peuvent utiliser OSINT pour enquêter sur des crimes, identifier des criminels et surveiller les activités en ligne liées à des affaires criminelles.
+            </p>
+
+          </div>
+        </div>
+      </div>
+      <div class="post1">
+        <div class="frame1">
+          <div class="textframe1">
+            <h1 class="title1">Analyse financière : </h1>
+            <p class="title2">
+              <br>
+              <br>
+              Les professionnels de la finance peuvent utiliser OSINT pour suivre les marchés, surveiller les investissements et évaluer le risque financier.
+            </p>
+          </div>
+        </div>
+        <div class="frame2">
+          <div class="textframe2">
+            <h1 class="title3">Cybersécurité :</h1>
+            <p class="title4">
+              <br>
+              <br>
+              Les experts en sécurité peuvent surveiller les menaces en ligne, identifier les vulnérabilités et prévenir les cyberattaques.
+            </p>
+
+          </div>
+        </div>
+      </div>
+      <div class="textpost1">
+        <h1>ET ENCORE DE NOMBREUSES AUTRES UTILISATIONS SONT POSSIBLES  </h1>
+      </div>
+      
 </body>
 </html>

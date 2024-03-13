@@ -1,126 +1,338 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #1e1e1e;
-    color: white;
+
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    width: 1300px;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.25rem;
-}
-
-.logo-container img {
-    height: 3.125rem; /* Adjust as needed */
-}
-
-nav {
-    display: flex;
-    gap: 0.625rem;
-}
-
-nav a {
-    text-decoration: none;
-    color: white;
-    padding: 0.3125rem 0.625rem;
-    border-radius: 0.3125rem;
-    transition: background-color 0.3s;
-}
-
-nav a.profile {
-    background-color: #4b6cc1;
-}
-
-nav a:hover {
-    background-color: #333;
-}
-
-/* .search-container {
-    display: flex;
-    align-items: center;
-} */
-
-/* .search-container input {
-    padding: 0.3125rem;
-    margin-right: 0.3125rem;
-    background-color: #333;
+.searchbar{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    width: 1000px;
+    margin-top: -200px;
+    height: 40px;
+    border-radius: 20px;
+    /* border: grey; */
     border: none;
-    color: white;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajouter une ombre portée simulant une bordure */
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)); /* Ajouter un dégradé de gauche à droite */
+    padding: 0 20px; /* Ajouter un peu d'espace intérieur */
 }
 
-.search-container button {
-    background-color: transparent;
-    border: none;
-    color: white;
-} */
-
-/* Responsive search bar */
-.search-bar {
-    margin: 1.125rem auto; /* Centered with automatic margins */
-    display: flex;
-    justify-content: center; /* Center search bar */
-    align-items: center;
-    flex-direction: column; /* Stack input and button */
+.searchbar-container {
+    display: block;
+    position: relative;
+    width: 1000px;
+    margin: -200px auto 0 auto;
 }
 
-#search-input {
-    padding: 0.625rem;
-    width: 80%; /* Responsive width */
-    border-radius: 1.25rem;
-    border: 1px solid #333;
-    background-color: #333;
-    color: white;
-    margin-bottom: 0.625rem; /* Space between input and button */
-}
-
-#search-button {
-    padding: 0.625rem 1.25rem;
-    border-radius: 1.25rem;
-    border: none;
-    background-color: #4b6cc1;
-    color: white;
+.search-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px; /* Ajuste la taille de ton icône si nécessaire */
+    height: 20px; /* Ajuste la taille de ton icône si nécessaire */
     cursor: pointer;
 }
 
-#search-tagline {
-    margin-top: 1.25rem;
-    margin-left: 650px;
+.searchbar::-moz-search-clear-button {
+    display: none;
 }
 
-.image {
-    margin: 7.5rem auto; /* Centered with automatic margins */
-    text-align: center; /* Center image and text */
+.searchbar::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
 }
 
-.image h1 {
-    margin-top: 0.625rem;
+
+.reference{
+    background-color: rgb(172, 172, 172);
+    width: 32.2%;
+    margin-top: 15%;
+    margin-left: 5%;
+    border-radius: 20px;
 }
 
-/* Media Query for smaller screens */
-@media (max-width: 768px) {
-    .image, .search-bar, #search-tagline {
-        margin-left: auto;
-        margin-right: auto;
-    }
+.ref-image{
+    width: 600px;
+}
 
-    nav {
-        flex-direction: column; /* Stack nav links vertically */
-        gap: 0.625rem;
-    }
+.ref-texte{
+    font-size: x-large;
+}
 
-    .logo-container img {
-        height: 2.5rem;
-    }
+.reference2{
+    background-color: rgb(151, 151, 151);
+    width: 32.2%;
+    margin-top: -35%;
+    margin-left: 55%;
+    border-radius: 20px;
+}
 
-    #search-input {
-        width: 90%; /* Increase width on small screens */
-    }
+.ref-image2{
+    width: 600px;
+}
 
-    .image img {
-        width: auto; /* Make the image responsive */
-        height: auto; /* Maintain aspect ratio */
-    }
+.reference3{
+    margin-top: 200px;
+}   
+
+.sous-cat{
+    background-color: rgb(172, 172, 172);
+    width: 40%;
+    margin-top: 5%;
+    margin-left: 5%;
+    border-radius: 20px;
+}   
+
+.sous-cat2{
+    background-color: rgb(172, 172, 172);
+    width: 40%;
+    margin-top: 5%;
+    margin-left: 5%;
+    border-radius: 20px;
+}
+
+.sous-cat3{
+    background-color: rgb(151, 151, 151);
+    width: 40%;
+    margin-top: -18%;
+    margin-left: 50%;
+    border-radius: 20px;
+}
+
+.sous-cat4{
+    background-color: rgb(151, 151, 151);
+    width: 40%;
+    margin-top: 6%;
+    margin-left: 50%;
+    border-radius: 20px;
+}
+
+.text-cat{
+    font-size: x-large;
+}
+
+.titre-3{
+    color: white;
+}
+
+.main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: aqua; */
+    height: 400px;
+    width: 100%;
+    margin-top: 12%;
+}
+
+.text {
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    height: 100%;
+    width: 20%;
+    text-align: right;
+    /* background-color: red; */
+    margin-right: 15%;
+    margin-top: 4%;
+    color: #fff;
+}
+
+.picture {
+    height: 100%;
+    width: 30%;
+    /* background-color: black; */
+    /* width: 300px; 
+    height: 300px;  */
+    object-fit: contain;
+    object-position: center;
+    /* margin-left: 25%; */
+}
+
+.picture1 {
+    height: 100%;
+    width: 100%;
+    /* background-color: black; */
+    /* width: 300px; 
+    height: 300px;  */
+    object-fit: contain;
+    object-position: center;
+    margin-left: 20%;
+}
+
+.main-content1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width: 100%;
+    margin-top: 12%;
+    /* background-color: aqua; */
+}
+
+.picture_eyes {
+    height: 100%;
+    width: 50%;
+    /* background-color: black; */
+    /* width: 300px; 
+    height: 300px;  */
+    object-fit: contain;
+    object-position: center;
+    margin-left: 5%;
+}
+
+.picture2 {
+    height: 100%;
+    width: 100%;
+    /* background-color: black; */
+    width: 400px; 
+    height: 400px; 
+    object-fit: contain;
+    object-position: center;
+    /* margin-left: 30%; */
+}
+
+.texteyes {
+    display: flex;
+    text-align: left;
+    height: 100%;
+    width: 50%;
+    /* background-color: red; */
+    margin-left: 10%;
+    margin-top: 7%;
+    color: #fff;
+    
+}
+
+.width {
+    width: 50%;
+    margin-left: 14%;
+}
+
+.textpost {
+    /* background-color: red; */
+    margin-left: 5%;
+    height: 80px;
+    width: 90%;
+    margin-top: 10%;
+    color: #fff;
+}
+.post {
+    display: flex;
+    /* align-items: center; */
+    color: #fff;
+    height: 400px;
+    width: 100%;
+    /* background-color: black; */
+    /* margin-top: 10%; */
+}
+
+
+.frame1 {
+    /* background-color: aqua; */
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.frame2 {
+    /* background-color: blueviolet; */
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.textframe1 {
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    height: 80%;
+    width: 50%;
+    /* background-color: red; */
+    color: #fff;
+    background-color: #1B263B;
+    border-radius: 5px;
+}
+
+.textframe2 {
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    height: 80%;
+    width: 50%;
+    /* background-color: red; */
+    color: #fff;
+    background-color: #1B263B;
+    border-radius: 5px;
+}
+
+.title1 {
+    font-size: 20px;
+    margin-top: 10%;
+    /* margin-left: 1%; */
+    /* background-color: black; */
+    width: 80%;
+    justify-content: center;
+    text-align: left;
+    margin-left: 10%;
+}
+
+.title2 {
+    display: flex;
+    text-align: left;
+    width: 80%;
+    /* background-color: black; */
+    justify-content: center;
+    margin-left: 10%;
+}
+
+.title3 {
+    font-size: 20px;
+    margin-top: 10%;
+    /* margin-left: 1%; */
+    /* background-color: black; */
+    width: 80%;
+    justify-content: center;
+    text-align: left;
+    margin-left: 10%;
+}
+
+.title4 {
+    display: flex;
+    text-align: left;
+    width: 80%;
+    /* background-color: black; */
+    justify-content: center;
+    margin-left: 10%;
+}
+
+.post1 {
+    display: flex;
+    /* align-items: center; */
+    color: #fff;
+    height: 400px;
+    width: 100%;
+    /* background-color: black; */
+    margin-top: 4%;
+}
+
+.textpost1 {
+    /* background-color: red; */
+    margin-left: 5%;
+    height: 80px;
+    width: 90%;
+    margin-top: 5%;
+    color: #fff;
 }

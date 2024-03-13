@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baker Street</title>
+    <link rel="stylesheet" href="/Front/styles/accueil.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="/Front/assets/img/Ellipse 1 (1).png" alt="Baker Street Logo">
+        </div>
+        <nav>
+            <a href="/">Accueil</a>
+            <a href="/Enregistrement">Register</a>
+            <a href="/Authentification">Login</a>
+            <a href="/Deconnexion">Logout</a>
+            <a href="#" class="profile">Profile</a>
+        </nav>
+        <!-- <div class="search-container">
+            <input type="search" placeholder="Search for files, plugins, and creators">
+            <button type="submit">🔍</button>
+        </div> -->
+    </header>
+    <main>
+        <div class="image">
+            <img src="logo_au_desu_noir.png" alt="Baker Street Logo">
+        </div>
+        <div class="search-bar">
+            <input type="search" placeholder="Search for files, plugins, and creators" id="search-input">
+            <button type="submit" id="search-button">🔍</button>
+        </div>
+        <p id="search-tagline">MOTEUR DE RECHERCHE OSINT</p>
+        {{if .ProcessMessage }} 
+        <p >{{.ProcessMessage}}</p>
+        {{end}} 
+    </main>
+    <!-- <footer>
+        <p>MOTEUR DE RECHERCHE OSINT</p>
+    </footer> -->
+</body>
+</html>

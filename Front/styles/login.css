@@ -21,6 +21,12 @@ body {
     margin-right: 16px;
 }
 
+.logo1 {
+    width: 250px;
+    margin-left: 1%;
+    margin-top: 0.5%;
+}
+
 .title {
     font-size: 2rem;
     font-weight: bold;
@@ -39,7 +45,7 @@ body {
 .form-container {
     background-color: #7C90AD;
     padding: 24px;
-    border-radius: 70px;
+    border-radius: 20px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     width: 384px;
 }
@@ -86,6 +92,7 @@ button:hover {
 .login-link {
     margin-top: 16px;
     text-align: center;
+    color: #fff;
 }
 
 a {
@@ -137,8 +144,11 @@ a:hover {
 .checkbox-container {
     display: flex;
     align-items: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    margin-right: 90px;
 }
 
 .checkbox-container input[type="checkbox"] {
-    margin-right: 5px; /* Ajoute un peu d'espace entre la case à cocher et le texte */
+    margin-right: -70px;
 }
