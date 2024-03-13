@@ -23,6 +23,33 @@ img{
     padding: 0 20px; /* Ajouter un peu d'espace intérieur */
 }
 
+.searchbar-container {
+    display: block;
+    position: relative;
+    width: 1000px;
+    margin: -200px auto 0 auto;
+}
+
+.search-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px; /* Ajuste la taille de ton icône si nécessaire */
+    height: 20px; /* Ajuste la taille de ton icône si nécessaire */
+    cursor: pointer;
+}
+
+.searchbar::-moz-search-clear-button {
+    display: none;
+}
+
+.searchbar::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+
 .reference{
     background-color: rgb(172, 172, 172);
     width: 32.2%;
