@@ -16,8 +16,11 @@ img{
     margin-top: -200px;
     height: 40px;
     border-radius: 20px;
-    background: transparent;
-    border-color: rgb(145, 145, 145) ;
+    /* border: grey; */
+    border: none;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajouter une ombre portée simulant une bordure */
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)); /* Ajouter un dégradé de gauche à droite */
+    padding: 0 20px; /* Ajouter un peu d'espace intérieur */
 }
 
 .reference{
