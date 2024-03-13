@@ -119,7 +119,7 @@ a:hover {
 }
 
 #password {
-    background-image: url('fermer-a-cle.png');  /* Remplacez par le chemin de votre image */
+    background-image: url('/Front/assets/img/fermer-a-cle.png');  /* Remplacez par le chemin de votre image */
     background-repeat: no-repeat;
     background-position: calc(100% - 20px) center;
     background-size: 20px; /* La taille de l'image, ajustez selon vos besoins */
@@ -127,7 +127,7 @@ a:hover {
 }
 
 #password_verify {
-    background-image: url('fermer-a-cle.png');  /* Remplacez par le chemin de votre image */
+    background-image: url('/Front/assets/img/fermer-a-cle.png');  /* Remplacez par le chemin de votre image */
     background-repeat: no-repeat;
     background-position: calc(100% - 20px) center;
     background-size: 20px; /* La taille de l'image, ajustez selon vos besoins */
@@ -135,7 +135,7 @@ a:hover {
 }
 
 #username {
-    background-image: url('utilisateur-de-profil.png');  /* Remplacez par le chemin de votre image */
+    background-image: url('/Front/assets/img/utilisateur-de-profil.png');  /* Remplacez par le chemin de votre image */
     background-repeat: no-repeat;
     background-position: calc(100% - 20px) center;
     background-size: 20px; /* La taille de l'image, ajustez selon vos besoins */
@@ -143,7 +143,7 @@ a:hover {
 }
 
 #email {
-    background-image: url('email.png');  /* Remplacez par le chemin de votre image */
+    background-image: url('/Front/assets/img/email.png');  /* Remplacez par le chemin de votre image */
     background-repeat: no-repeat;
     background-position: calc(100% - 20px) center;
     background-size: 20px; /* La taille de l'image, ajustez selon vos besoins */
@@ -151,7 +151,7 @@ a:hover {
 }
 
 #Nom {
-    background-image: url('carte-didentite.png');  /* Remplacez par le chemin de votre image */
+    background-image: url('/Front/assets/img/carte-didentite.png');  /* Remplacez par le chemin de votre image */
     background-repeat: no-repeat;
     background-position: calc(100% - 20px) center;
     background-size: 20px; /* La taille de l'image, ajustez selon vos besoins */
@@ -159,7 +159,7 @@ a:hover {
 }
 
 #Prenom {
-    background-image: url('carte-didentite.png');  /* Remplacez par le chemin de votre image */
+    background-image: url('/Front/assets/img/carte-didentite.png');  /* Remplacez par le chemin de votre image */
     background-repeat: no-repeat;
     background-position: calc(100% - 20px) center;
     background-size: 20px; /* La taille de l'image, ajustez selon vos besoins */
