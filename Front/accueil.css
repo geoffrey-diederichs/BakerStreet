@@ -16,9 +16,39 @@ img{
     margin-top: -200px;
     height: 40px;
     border-radius: 20px;
-    background: transparent;
-    border-color: rgb(145, 145, 145) ;
+    /* border: grey; */
+    border: none;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajouter une ombre portée simulant une bordure */
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)); /* Ajouter un dégradé de gauche à droite */
+    padding: 0 20px; /* Ajouter un peu d'espace intérieur */
 }
+
+.searchbar-container {
+    display: block;
+    position: relative;
+    width: 1000px;
+    margin: -200px auto 0 auto;
+}
+
+.search-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px; /* Ajuste la taille de ton icône si nécessaire */
+    height: 20px; /* Ajuste la taille de ton icône si nécessaire */
+    cursor: pointer;
+}
+
+.searchbar::-moz-search-clear-button {
+    display: none;
+}
+
+.searchbar::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
 
 .reference{
     background-color: rgb(172, 172, 172);

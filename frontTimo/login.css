@@ -144,8 +144,11 @@ a:hover {
 .checkbox-container {
     display: flex;
     align-items: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    margin-right: 90px;
 }
 
 .checkbox-container input[type="checkbox"] {
-    margin-right: 5px; /* Ajoute un peu d'espace entre la case à cocher et le texte */
+    margin-right: -70px;
 }
