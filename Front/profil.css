@@ -1,0 +1,87 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.wrapper {
+    display: flex;
+    height: 100vh;
+    background-color: aqua;
+}
+
+.column {
+    flex: 1;
+    /* height: 80%; */
+    
+}
+
+.leftside {
+    height: 100%;
+    width: 100%;
+    /* background-color: rebeccapurple; */
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 10%;
+}
+
+.rightside {
+    height: 100%;
+    width: 100%;
+    /* background-color: brown; */
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 10%;
+}
+
+.profile-info{
+ 
+   background-color: aquamarine;
+   width: 70%;
+   height: 70%;
+   justify-content: center;
+   display: flex;
+}
+
+.historique{
+
+    background-color: aquamarine;
+    width: 70%;
+    height: 70%;
+ } 
+
+
+ .pdp{
+    background-color: azure;
+    width: 34%;
+    height: 33%;
+ }
+
+ input{
+    margin: 10%;
+    align-items: center;
+    
+    padding: 6px 12px;
+    background: rgb(31, 32, 35);
+    border: 1px solid rgb(60, 63, 68);
+    border-radius: 4px;
+    font-size: 13px;
+    color: rgb(247, 248, 248);
+    height: 46px;
+    appearance: none;
+    transition: border 0.15s ease 0s;
+    :focus{
+        outline: none;
+        box-shadow: none;
+        border-color: rgb(100, 153, 255);
+    }
+
+ }
+
+ .title{
+    background-color: blue;
+
+ }
+

@@ -93,14 +93,14 @@
 }
 
 .detail-content {
-    display: none; /* Ou 'block' si actif, selon ta logique JS */
-    width: 100%; /* Prend la largeur du parent */
-    min-height: 100px; /* Hauteur minimale au départ */
-    max-height: 200px; /* Hauteur maximale avant d'afficher la barre de défilement */
-    /* Pas de hauteur fixe ici pour permettre au contenu de pousser les éléments en dessous */
-    overflow-y: auto; /* Permet un défilement si le contenu est trop long */
-    box-sizing: border-box; /* Assure que padding et border sont inclus dans la largeur */
-    /* Ajoute tes styles de padding, margin, etc. ici */
+    display: none; 
+    width: 100%; 
+    min-height: 100px;
+    max-height: 200px; 
+   
+    overflow-y: auto; 
+    box-sizing: border-box;
+   
   }
   
   /* Tu peux ajouter une transition pour un effet de déroulement */
