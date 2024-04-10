@@ -48,20 +48,50 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
             var research string
             var timestamp time.Time
             err := rows.Scan(&research, &timestamp)
+			now := time.Now()
+			
+			 last7days := now.Add(-7 * 24 * time.Hour)
+
             if err != nil {
                 logger.Error("Failed to scan row: ", zap.Error(err))
                 continue
             }
             researches = append(researches, research)
-            timestamps = append(timestamps, timestamp)
+            timestamps = append(timestamps, last7days)
         }
 
         if err := rows.Err(); err != nil {
             logger.Error("Error after iterating rows: ", zap.Error(err))
         }
 
-        structure.TplData.History.Research = researches
-        structure.TplData.History.Timestamp = timestamps
+       var Yesterday []string
+        var Last7days []string
+        var thisMonth []string
+        var Today []string
+
+        today := time.Now().Truncate(24 * time.Hour)
+        yesterday := today.Add(-24 * time.Hour)
+        last7days := today.Add(-7 * 24 * time.Hour)
+        firstOfMonth := time.Date(today.Year(), today.Month(), 1, 0, 0, 0, 0, today.Location())
+
+        for i, ts := range timestamps {
+            if ts.After(today) {
+                Today = append(Today, researches[i])
+            } else if ts.After(yesterday) {
+                Yesterday = append(Yesterday, researches[i])
+            } else if ts.After(last7days) {
+                Last7days = append(Last7days, researches[i])
+            } else if ts.After(firstOfMonth) {
+                thisMonth = append(thisMonth, researches[i])
+            }
+        }
+
+        // Envoyer les données au modèle
+        structure.TplData.History.Today = Today
+        structure.TplData.History.Yesterday = Yesterday
+        structure.TplData.History.Last7Days = Last7days
+        structure.TplData.History.ThisMonth = thisMonth
+
         structure.TplData.User.Username = username
         structure.TplData.User.Nom = nom
         structure.TplData.User.Prenom = prenom

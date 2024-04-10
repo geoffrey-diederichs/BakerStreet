@@ -1,6 +1,5 @@
 package structure
 
-import "time"
 
 var TplData TemplateData
 
@@ -27,8 +26,10 @@ type TemplateData struct {
 }
 
 type History struct {
-	Research [] string
-	Timestamp [] time.Time
+	Yesterday [] string
+	Last7Days [] string
+	ThisMonth [] string
+	Today [] string
 }
 
 

@@ -743,3 +743,52 @@
 {"level":"info","message":"logger construction succeeded"}
 {"level":"info","message":"logger construction succeeded"}
 {"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"error","message":"Failed to create history table","error":"table History already exists"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"error","message":"","error":"template: profil1.html:59:34: executing \"profil1.html\" at <.History.Research>: can't evaluate field Research in type structure.History"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"error","message":"Failed to create history table","error":"table History already exists"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"error","message":"Failed to create history table","error":"table History already exists"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"error","message":"Failed to create history table","error":"table History already exists"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"error","message":"Failed to create history table","error":"table History already exists"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"error","message":"Failed to create history table","error":"table History already exists"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}

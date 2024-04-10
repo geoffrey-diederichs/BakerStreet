@@ -56,43 +56,45 @@
               <h2>HISTORIQUE</h2>
               <div class="item">
                 <img class="icon" src="/Front/assets/img/chevron-fleche-vers-le-bas (2).png" alt="historique">
-                <!-- <p>{{.History.Research}}</p> -->
-                {{range $index, $research := .History.Research}}
+                <!-- Hier -->
+                
+                
+                <!-- 7 derniers jours -->
+                
+                
+                <!-- Dans le mois -->
+                
+                
+                <!-- Le jour même -->
+                {{range .History.Today}}
                 <div class="detail-content">
-                  <p>Research: {{$research}}</p>
-                  <p>Timestamp: {{index $.History.Timestamp $index}}</p>
+                  <p>Research: {{.}}</p>
                 </div>
                 {{end}}
 
+                
 
               </div>
               <div class="item">
                 <img class="icon" src="/Front/assets/img/chevron-fleche-vers-le-bas (2).png" alt="historique">
                 <p>Hier</p>
                 <div class="detail-content">
-                  <p>fffffffffffffffffffffffffffffffffffffffff<br>ffffffffff<br>fffffffffffff<br>fffffffffffffffff<br>fffffffff<br>fffffff<br>ffffffff</p>
-                  <p>fff</p>
-                  <p>fff</p>
-                  <p>fff</p>
-                  <p>fff</p>
-                  <p>fff</p>
-                  <p>fff</p>
-                  <p>fffggggkkkkkkkkkllllllllmmmmmmmmmmmmp^^^^^^^^</p>
-                  <!-- Contenu détaillé pour Aujourd'hui -->
+                  {{range .History.Yesterday}}
+                  <div class="detail-content">
+                    <p>Research: {{.}}</p>
+                  </div>
+                  {{end}}
                 </div>
               </div>
               <div class="item">
                 <img class="icon" src="/Front/assets/img/chevron-fleche-vers-le-bas (2).png" alt="historique">
                 <p>7 derniers jours</p>
                 <div class="detail-content">
-                  <p>fffffffffffffffffffffffffffffffffffffffff<br>ffffffffff<br>fffffffffffff<br>fffffffffffffffff<br>fffffffff<br>fffffff<br>ffffffff</p>
-                  <p>fff</p>
-                  <p>fff</p>
-                  <p>fff</p>
-                  <p>fff</p>
-                  <p>fff</p>
-                  <p>fff</p>
-                  <p>fffggggkkkkkkkkkllllllllmmmmmmmmmmmmp^^^^^^^^</p>
+                  {{range .History.Last7Days}}
+                  <div class="detail-content">
+                    <p>Research: {{.}}</p>
+                  </div>
+                  {{end}}
                   <!-- Contenu détaillé pour Aujourd'hui -->
                 </div>
               </div>
@@ -100,14 +102,11 @@
                 <img class="icon" src="/Front/assets/img/chevron-fleche-vers-le-bas (2).png" alt="historique">
                 <p>Ce mois-ci</p>
                 <div class="detail-content">
-                  <p>fffffffffffffffffffffffffffffffffffffffff<br>ffffffffff<br>fffffffffffff<br>fffffffffffffffff<br>fffffffff<br>fffffff<br>ffffffff</p>
-                  <p>fff</p>
-                  <p>fff</p>
-                  <p>fff</p>
-                  <p>fff</p>
-                  <p>fff</p>
-                  <p>fff</p>
-                  <p>fffggggkkkkkkkkkllllllllmmmmmmmmmmmmp^^^^^^^^</p>
+                  {{range .History.ThisMonth}}
+                  <div class="detail-content">
+                    <p>Research: {{.}}</p>
+                  </div>
+                  {{end}}
                   <!-- Contenu détaillé pour Aujourd'hui -->
                 </div>
               </div>          
