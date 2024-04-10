@@ -46,6 +46,17 @@ func OuvrirBaseDonnee(chemin string) (*sql.DB, error) {
 		logger.Info("La table Utilisateurs existe déjà.")
 	}
 
+	_, err = bd.Exec(`CREATE TABLE History (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        username TEXT NOT NULL,
+        research VARCHAR(255) NOT NULL,
+        timestamp DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+        );`)
+        if err != nil {
+            logger.Error("Failed to create history table", zap.Error(err))
+            return bd, err
+        }
+
 	return bd, err
 }
 

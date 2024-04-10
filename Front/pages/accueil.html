@@ -27,6 +27,7 @@
           <div class="navlinks-container">
             <a href="#" aria-current="page">Accueil</a>
             <a href="/Front/pages/parametres.html">parametres</a>
+            <span id="username">{{.User.Username}}</span>
           </div>
         </div>
   
@@ -41,18 +42,23 @@
             <a href="/Authentification">
               <button type="button">Se connecter</button>
             </a>
+            <span>{{.User.Username}}</span>
+            <button type="button" id="logoutBtn">Logout</button>
           </div>
         </div>
+
         
       </nav>
       <script src="/Front/js/script.js"></script>
 
       <div> 
             <img src="/Front/assets/img/logo au desu noir (1).png" alt="photo1">
-            <div class="searchbar-container">
-              <input type="search" placeholder="Search.." class="searchbar">
+            <form action="/recherche" class="searchbar-container" method="post">
+              <input type="search" placeholder="Search.." class="searchbar" name="search">
+              <button type="submit">Valider</button>
               <!-- Utilise ton icône téléchargée ici -->
               <img src="/Front/assets/img/rechercher.png" class="search-icon" alt="Search">
+        
             </div>
             <!-- <input type="search" placeholder="Search.." class="searchbar"> -->
       </div>

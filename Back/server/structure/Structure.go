@@ -20,5 +20,12 @@ type Results struct {
 type TemplateData struct {
 	ProcessMessage string
 	User           Utilisateurs
+	History		   History
 	// Result         Result
 }
+
+type History struct {
+	Research [] string
+}
+
+

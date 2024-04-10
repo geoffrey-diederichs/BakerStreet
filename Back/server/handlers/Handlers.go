@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	search "OSINT/Back/server/search"
 	account "OSINT/Back/server/account"
 	auth "OSINT/Back/server/authentification"
 	logs "OSINT/Back/server/logs"
@@ -62,9 +63,9 @@ func LogoutHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func SearchHandler(w http.ResponseWriter, r *http.Request) {
-	// input := r.FormValue("input")
-
+	search.Search(w, r)
 }
+
 func AccountHandler(w http.ResponseWriter, r *http.Request) {
 	account.GetUser(w, r)
 	errTpl := tpl.ExecuteTemplate(w, "profil1.html", structure.TplData)
@@ -72,3 +73,5 @@ func AccountHandler(w http.ResponseWriter, r *http.Request) {
 		logger.Error("", zap.Error(errTpl))
 	}
 }
+
+

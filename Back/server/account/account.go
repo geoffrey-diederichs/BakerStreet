@@ -27,10 +27,36 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 
 		var nom, prenom, email, icon string
 		var age int
-		err := data.Bd.QueryRow("SELECT nom, prenom, email, age, icon FROM Utilisateurs WHERE username = ?", username).Scan(&nom, &prenom, &email, &age, &icon)
+
+		// err := data.Bd.QueryRow("SELECT nom, prenom, email, age, icon FROM Utilisateurs WHERE username = ?", username).Scan(&nom, &prenom, &email, &age, &icon)
+
 		if err != nil {
 			logger.Error("Failed to retrieve info user : ", zap.Error(err))
 		}
+		rows, err := data.Bd.Query("SELECT research FROM History WHERE username = ?", username)
+		if err != nil {
+			logger.Error("Failed to retrieve info history : ", zap.Error(err))
+			return
+		}
+		defer rows.Close()
+
+		var researches []string
+
+		for rows.Next() {
+			var research string
+			err := rows.Scan(&research)
+			if err != nil {
+				logger.Error("Failed to scan row: ", zap.Error(err))
+				continue
+			}
+			researches = append(researches, research)
+		}
+
+		if err := rows.Err(); err != nil {
+			logger.Error("Error after iterating rows: ", zap.Error(err))
+		}
+
+		structure.TplData.History.Research = researches
 		structure.TplData.User.Username = username
 		structure.TplData.User.Nom = nom
 		structure.TplData.User.Prenom = prenom

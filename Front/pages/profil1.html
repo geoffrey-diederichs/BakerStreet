@@ -56,18 +56,15 @@
               <h2>HISTORIQUE</h2>
               <div class="item">
                 <img class="icon" src="/Front/assets/img/chevron-fleche-vers-le-bas (2).png" alt="historique">
-                <p>Aujourd'hui</p>
+                <!-- <p>{{.History.Research}}</p> -->
+                {{range .History.Research}}
                 <div class="detail-content">
-                  <p>fffffffffffffffffffffffffffffffffffffffff<br>ffffffffff<br>fffffffffffff<br>fffffffffffffffff<br>fffffffff<br>fffffff<br>ffffffff</p>
-                  <p>fff</p>
-                  <p>fff</p>
-                  <p>fff</p>
-                  <p>fff</p>
-                  <p>fff</p>
-                  <p>fff</p>
-                  <p>fffggggkkkkkkkkkllllllllmmmmmmmmmmmmp^^^^^^^^</p>
-                  <!-- Contenu détaillé pour Aujourd'hui -->
+                  <p>{{.}}</p>
+                  <!-- Vous pouvez afficher d'autres propriétés de recherche ici si nécessaire -->
                 </div>
+                {{end}}
+
+
               </div>
               <div class="item">
                 <img class="icon" src="/Front/assets/img/chevron-fleche-vers-le-bas (2).png" alt="historique">

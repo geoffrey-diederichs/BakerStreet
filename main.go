@@ -12,7 +12,7 @@ func main() {
 	http.Handle("/Front/", http.StripPrefix("/Front/", fs))
 	//all Handlers
 	http.HandleFunc("/", o.WelcomeHandler)
-	http.HandleFunc("/Recherche", o.SearchHandler)
+	http.HandleFunc("/recherche", o.SearchHandler)
 	http.HandleFunc("/Enregistrement", o.EnregistrementHandler)
 	// http.HandleFunc("/PasswordModify", o.PasswordModifyHandler)
 	http.HandleFunc("/Authentification", o.LoginHandler)

@@ -16,36 +16,38 @@
   </head>
   <body>
     <nav>
-
       <a href="#" class="nav-icon" aria-label="homepage" aria-current="page">
-        <img src="/Front/assets/img/logo sur coté noir.png" alt="chat icon" />
+        <img src="logo sur coté noir.png" alt="chat icon" />
       </a>
-
       <div class="main-navlinks">
-        <button type="button" class="hamburger"  aria-label="Toggle Navigation" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+        <button type="button" class="hamburger" aria-label="Toggle Navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <div class="navlinks-container">
           <a href="#" aria-current="page">Accueil</a>
-          <a href="#">parametres</a>
+          <a href="#">Paramètres</a>
         </div>
       </div>
-
-      <div class="nav-authentication">
+      <div class="nav-authentication" id="authSection">
+        <!-- {{if not .User}} -->
         <a href="#" class="user-toggler" aria-label="Sign in page">
           <img src="utilisateur.png" alt="user icon" />
         </a>
         <div class="sign-btns">
-          <button type="button">Sign In</button>
-          <button type="button">Sign Up</button>
+          <button type="button" id="loginBtn">Sign In</button>
+          <button type="button" id="registerBtn">Sign Up</button>
         </div>
+        <!-- {{else}} -->
+        <span id="username">{{.User.Username}}</span>
+        <button type="button" id="logoutBtn">Logout</button>
+        <!-- {{end}} -->
       </div>
-      
     </nav>
 
 
     <script src="/Front/js/script.js"></script>
+    
   </body>
 </html>
