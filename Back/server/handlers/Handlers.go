@@ -7,8 +7,7 @@ import (
 	structure "OSINT/Back/server/structure"
 	"html/template"
 	"net/http"
-
-	"go.uber.org/zap"
+ 		"go.uber.org/zap"
 )
 
 var tpl *template.Template

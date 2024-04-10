@@ -26,12 +26,16 @@
                 <h1>S'enregistrer</h1>
             </div>
 
+            {{if .ProcessMessage }} 
+            <div>{{.ProcessMessage}}</div>
+            {{end}} 
+
             <!-- Form fields -->
-            <form action="your_action_url" method="post">
+            <form action="/Authentification" method="post">
                 
                 <div class="input-container">
-                    <label for="email">Email</label>
-                    <input type="text" id="email" name="email" >
+                    <label for="username">Email</label>
+                    <input type="text" id="email" name="username" placeholder="Entrer nom utilisateur" >
                 </div>
                 <div class="input-container">
                     <label for="password">Mot de passe</label>
