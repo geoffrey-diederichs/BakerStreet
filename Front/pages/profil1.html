@@ -57,10 +57,10 @@
               <div class="item">
                 <img class="icon" src="/Front/assets/img/chevron-fleche-vers-le-bas (2).png" alt="historique">
                 <!-- <p>{{.History.Research}}</p> -->
-                {{range .History.Research}}
+                {{range $index, $research := .History.Research}}
                 <div class="detail-content">
-                  <p>{{.}}</p>
-                  <!-- Vous pouvez afficher d'autres propriétés de recherche ici si nécessaire -->
+                  <p>Research: {{$research}}</p>
+                  <p>Timestamp: {{index $.History.Timestamp $index}}</p>
                 </div>
                 {{end}}
 

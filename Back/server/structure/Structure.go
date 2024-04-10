@@ -1,5 +1,7 @@
 package structure
 
+import "time"
+
 var TplData TemplateData
 
 type Utilisateurs struct {
@@ -26,6 +28,7 @@ type TemplateData struct {
 
 type History struct {
 	Research [] string
+	Timestamp [] time.Time
 }
 
 
