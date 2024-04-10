@@ -67,7 +67,7 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 }
 func AccountHandler(w http.ResponseWriter, r *http.Request) {
 	account.GetUser(w, r)
-	errTpl := tpl.ExecuteTemplate(w, "account.html", structure.TplData)
+	errTpl := tpl.ExecuteTemplate(w, "profil1.html", structure.TplData)
 	if errTpl != nil {
 		logger.Error("", zap.Error(errTpl))
 	}

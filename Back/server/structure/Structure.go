@@ -13,13 +13,9 @@ type Utilisateurs struct {
 	Icon   string
 }
 
-// type Result struct {
-// 	Pseudo string
-// 	Email string
-// Location string
-// 	Phone string
-
-// }
+type Results struct {
+	URL string
+}
 
 type TemplateData struct {
 	ProcessMessage string
