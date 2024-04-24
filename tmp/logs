@@ -792,3 +792,15 @@
 {"level":"info","message":"logger construction succeeded"}
 {"level":"info","message":"logger construction succeeded"}
 {"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"La table Utilisateurs existe déjà."}
+{"level":"error","message":"Failed to create history table","error":"table History already exists"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"tentativederecherche"}
+{"level":"info","message":"vous etes bien connecté"}
+{"level":"info","message":"Methode post succès"}
+{"level":"info","message":"Recherche ajoutée à l'historique avec succès"}

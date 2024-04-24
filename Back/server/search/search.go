@@ -23,10 +23,10 @@ func Search(w http.ResponseWriter, r *http.Request){
         logger.Info("vous etes bien connecté")
 		if r.Method == "POST" {
             logger.Info("Methode post succès")
-	  research := r.FormValue("search")
-	  maintenant := time.Now()
-	   timestamp := maintenant.Format(time.RFC3339)
-	   _, errAddHistory := data.Bd.Exec("INSERT INTO History (username, research, timestamp) VALUES (?, ?, ?)", username, research, timestamp)
+            research := r.FormValue("search")
+            maintenant := time.Now()
+            timestamp := maintenant.Format(time.RFC3339)
+            _, errAddHistory := data.Bd.Exec("INSERT INTO History (username, research, timestamp) VALUES (?, ?, ?)", username, research, timestamp)
 
 	    if errAddHistory != nil {
             // Gérer l'erreur, par exemple, en la journalisant ou en envoyant une réponse d'erreur au client
