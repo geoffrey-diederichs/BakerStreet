@@ -4,9 +4,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import json
+import time
 
-
-TARGET = "Erwan Sinck"
+API = "/api/api.txt"
 
 def setUpBrowser(options:bool) -> webdriver:
     if (options == True):
@@ -45,18 +46,55 @@ def fcbkPublic(brow:webdriver, request:str) -> [str]:
     
     return result
 
-def fullLookup(brow:webdriver, target:str) -> None:
-    facebook = fcbkPublic(brow, target)
+def fullLookup(brow:webdriver, target:str) -> json:
+    facebook = [] 
     insta = duckResearch(brow, "site:instagram.com \"@\" "+target)
     tiktok = duckResearch(brow, "site:tiktok.com \"@\" "+target)
     twitter = duckResearch(brow, "site:twitter.com \"@\" "+target)
     github = duckResearch(brow, "site:github.com \"@\" "+target)
 
-    print(facebook, insta, tiktok, twitter, github, sep="\n", end="\n")
+    result = {
+            "facebook": facebook,
+            "instagram": insta, 
+            "tiktok": tiktok, 
+            "twitter": twitter, 
+            "github": github
+    }
+    return json.dumps(result)
 
-def main() -> None:
+def Lookup() -> None:
+    target = "Erwan Sink"
     brow = setUpBrowser(True)
-    fullLookup(brow, TARGET)
-    
+    response = fullLookup(brow, target)
+
+def getTarget() -> (str, int):
+    with open(API, "r") as f:
+        data = f.read()
+        data = data.split("\n")
+        for i in range(len(data)-1):
+            lines = data[i].split(";")
+            if len(lines[1]) == 0:
+                return data[i].split(";")[0], i
+    return "", -1
+
+def writeResult(target: str, line: int, result: str) -> None:
+    data = ""
+    with open(API, "r") as f:
+        data = f.read()
+    data = data.split("\n")
+    data[line] = target+";"+result
+    data = "\n".join(data)
+    with open(API, "w") as f:
+        f.write(data)
+
+def loop() -> None:
+    brow = setUpBrowser(True)
+    while True:
+        time.sleep(1)
+        target, line = getTarget()
+        if not ((target == "") and (line == -1)):
+            result = fullLookup(brow, target)
+            writeResult(target, line, str(result))
+
 if __name__ == "__main__":
-    main()  
+    loop()

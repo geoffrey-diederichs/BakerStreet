@@ -17,4 +17,4 @@ RUN python3 -m venv /app/env && source /app/env/bin/activate && pip install -r r
 # Addind the script to launch
 RUN echo "source /app/env/bin/activate && python3 osint.py" > launch.sh
 
-ENTRYPOINT ["/bin/bash", "launch.sh"]
+ENTRYPOINT ["/bin/bash",  "launch.sh"]
