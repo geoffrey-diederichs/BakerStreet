@@ -1,7 +1,9 @@
 package search
 
 import (
+
     data "OSINT/Back/server/data"
+    api "OSINT/Back/server/api"
     logs "OSINT/Back/server/logs"
     // structure "OSINT/Back/server/structure"
     "net/http"
@@ -24,6 +26,7 @@ func Search(w http.ResponseWriter, r *http.Request){
 		if r.Method == "POST" {
             logger.Info("Methode post succès")
             research := r.FormValue("search")
+            api.Extract_Api("research")
             maintenant := time.Now()
             timestamp := maintenant.Format(time.RFC3339)
             _, errAddHistory := data.Bd.Exec("INSERT INTO History (username, research, timestamp) VALUES (?, ?, ?)", username, research, timestamp)

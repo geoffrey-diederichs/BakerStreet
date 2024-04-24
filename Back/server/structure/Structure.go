@@ -14,16 +14,20 @@ type Utilisateurs struct {
 	Icon   string
 }
 
-type Results struct {
-	URL [] string
-}
+
 
 type TemplateData struct {
 	ProcessMessage string
 	User           Utilisateurs
 	History		   History
 	Results        Results
-	// Result         Result
+}
+
+type Results struct {
+	facebook [] string
+	tiktok [] string
+	twitter [] string
+	github [] string
 }
 
 type History struct {
