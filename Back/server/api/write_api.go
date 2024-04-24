@@ -46,7 +46,8 @@ func isSearching() bool {
 		match := re.FindStringSubmatch(lastLine)
 		if match != nil {
 			// The matched group is in match[1]
-			logger.Info("Match found:", zap.String("match", match[1]))
+			// logger.Info("Match found:", zap.String("match", match[1]))
+			logger.Info("Data found after")
 			return false
 		} else {
 			logger.Info("No data found after")
