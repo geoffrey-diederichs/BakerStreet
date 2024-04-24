@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	api "OSINT/Back/server/api"
 	account "OSINT/Back/server/account"
 	home "OSINT/Back/server/home"
 	auth "OSINT/Back/server/authentification"
@@ -68,6 +69,14 @@ func LogoutHandler(w http.ResponseWriter, r *http.Request) {
 func SearchHandler(w http.ResponseWriter, r *http.Request) {
 	search.Search(w, r)
 	errTpl := tpl.ExecuteTemplate(w, "recherche.html", structure.TplData)
+	if errTpl != nil {
+		logger.Error("", zap.Error(errTpl))
+	}
+}
+
+func ApiHandler(w http.ResponseWriter, r *http.Request) {
+	api.Test_Api(w, r)
+	errTpl := tpl.ExecuteTemplate(w, "api.html", structure.TplData)
 	if errTpl != nil {
 		logger.Error("", zap.Error(errTpl))
 	}

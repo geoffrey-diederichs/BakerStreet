@@ -13,6 +13,7 @@ func main() {
 	//all Handlers
 	http.HandleFunc("/", o.WelcomeHandler)
 	http.HandleFunc("/Recherche", o.SearchHandler)
+	http.HandleFunc("/Api", o.ApiHandler)
 	http.HandleFunc("/Enregistrement", o.EnregistrementHandler)
 	// http.HandleFunc("/PasswordModify", o.PasswordModifyHandler)
 	http.HandleFunc("/Authentification", o.LoginHandler)

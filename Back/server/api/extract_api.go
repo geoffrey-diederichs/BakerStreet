@@ -11,7 +11,7 @@ import (
 
 var logger = logs.GetLog(logs.GetLogConfig())
 
-func Extract_Api(research string) {
+func Write_Api(research string) {
 	// L'URL pour récupérer le premier post
 	path := "/Osint/app/api/api.txt"
 	abs_path, err := filepath.Abs(path)
