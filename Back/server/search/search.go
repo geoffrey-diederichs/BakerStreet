@@ -26,7 +26,8 @@ func Search(w http.ResponseWriter, r *http.Request){
 		if r.Method == "POST" {
             logger.Info("Methode post succès")
             research := r.FormValue("search")
-            api.Extract_Api("research")
+            logger.Info("Recherche : ", zap.String("research", research))
+            api.Write_Api(research)
             maintenant := time.Now()
             timestamp := maintenant.Format(time.RFC3339)
             _, errAddHistory := data.Bd.Exec("INSERT INTO History (username, research, timestamp) VALUES (?, ?, ?)", username, research, timestamp)

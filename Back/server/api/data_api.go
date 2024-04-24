@@ -10,6 +10,6 @@ func Extract_Api(research string) {
 }
 
 func Test_Api(w http.ResponseWriter, r *http.Request){
-	Extract_Api("test")
+	Extract_Api("test;")
 	return
 }

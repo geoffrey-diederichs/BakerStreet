@@ -57,11 +57,10 @@
 
       <div> 
             <img src="/Front/assets/img/logo au desu noir (1).png" alt="photo1">
-            <div class="searchbar-container">
-              <input type="search" placeholder="Search.." class="searchbar">
-              <!-- Utilise ton icône téléchargée ici -->
-              <img src="/Front/assets/img/rechercher.png" class="search-icon" alt="Search">
-            </div>
+            <form method="post" action="/Recherche" class="searchbar-container">
+              <input name="search" type="search" placeholder="Search.." class="searchbar">
+              <button type="submit" name="submit" src="/Front/assets/img/rechercher.png" class="search-icon" alt="Search">
+            </form>
             <!-- <input type="search" placeholder="Search.." class="searchbar"> -->
       </div>
       <div class="main-content">
