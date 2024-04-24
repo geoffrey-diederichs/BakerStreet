@@ -6,29 +6,33 @@ import (
 	"net/http"
 )
 
-// Deconnexion gere la deconnexion de l'utilisateur
 func Logout(w http.ResponseWriter, r *http.Request) {
+    // Retrieve the user session
+    session, err := data.Store.Get(r, "data")
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
 
-	// recuperation de de la de la session utilisateur
-	session, err := data.Store.Get(r, "data")
+    // Invalidate the session
+    session.Values = map[interface{}]interface{}{} // Clear all data in the session
+    session.Options.MaxAge = -1
+	structure.TplData.User.Username = ""
+	structure.TplData.User.Nom = ""
+	structure.TplData.User.Prenom = ""
+	structure.TplData.User.Email = ""
+	structure.TplData.User.Age = 0
+	structure.TplData.User.Icon = ""
 
-	// gestion de l'erreur
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
+    // Save the changes to the session
+    if err := session.Save(r, w); err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
 
-	// Supprime la session
-	session.Options.MaxAge = -1
-	err = session.Save(r, w)
-
-	// gestion de l'erreur
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	// redirection de l'utilisateur vers l'acceuil
-	structure.TplData.ProcessMessage = "Vous êtes maintenant déconnecté"
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+    // Log and inform the user
+    logger.Info("Vous êtes maintenant déconnecté")
+    structure.TplData.ProcessMessage = "Vous êtes maintenant déconnecté"
+    http.Redirect(w, r, "/", http.StatusSeeOther)
 }
+

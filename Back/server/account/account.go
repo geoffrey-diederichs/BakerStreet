@@ -29,7 +29,7 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
         var nom, prenom, email, icon string
         var age int
 
-        // err := data.Bd.QueryRow("SELECT nom, prenom, email, age, icon FROM Utilisateurs WHERE username = ?", username).Scan(&nom, &prenom, &email, &age, &icon)
+        err := data.Bd.QueryRow("SELECT nom, prenom, email, age, icon FROM Utilisateurs WHERE username = ?", username).Scan(&nom, &prenom, &email, &age, &icon)
 
         if err != nil {
             logger.Error("Failed to retrieve info user : ", zap.Error(err))

@@ -15,13 +15,14 @@ type Utilisateurs struct {
 }
 
 type Results struct {
-	URL string
+	URL [] string
 }
 
 type TemplateData struct {
 	ProcessMessage string
 	User           Utilisateurs
 	History		   History
+	Results        Results
 	// Result         Result
 }
 

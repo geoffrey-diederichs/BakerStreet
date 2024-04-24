@@ -11,8 +11,8 @@ import (
 )
 
 func isEmailValid(e string) bool {
-_, err := mail.ParseAddress(e)
-return err == nil
+	_, err := mail.ParseAddress(e)
+	return err == nil
 }
 
 func Enregistrement(w http.ResponseWriter, r *http.Request) {
@@ -20,10 +20,11 @@ func Enregistrement(w http.ResponseWriter, r *http.Request) {
 	session, err := data.Store.Get(r, "data")
 	if err != nil {
 		logger.Error("Failed to get the session : ", zap.Error(err))
-		return
 	}
 	_, ok := session.Values["username"].(string)
+	logger.Info("session")
 	if ok {
+		logger.Info("Vous êtes déja connecté en tant que " + session.Values["username"].(string) + " !")
 		structure.TplData.ProcessMessage = "Vous êtes déja connecté en tant que " + session.Values["username"].(string) + " !"
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
@@ -120,7 +121,7 @@ func Enregistrement(w http.ResponseWriter, r *http.Request) {
 		}
 
 	} else {
-		structure.TplData.ProcessMessage = "Entrez bien toute les informations"
+		logger.Info("Bienvenue sur la page d'enregistrement")
 		return
 	}
 

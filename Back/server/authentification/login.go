@@ -71,8 +71,23 @@ func Login(w http.ResponseWriter, r *http.Request) {
 			structure.TplData.ProcessMessage = "Mot de passe incorrect"
 			return
 		} else {
+			var nom, prenom, email, icon string
+        	var age int
+			// L'utilisateur est connecté
 			session.Values["username"] = username
 			session.Save(r, w)
+			err := data.Bd.QueryRow("SELECT nom, prenom, email, age, icon FROM Utilisateurs WHERE username = ?", username).Scan(&nom, &prenom, &email, &age, &icon)
+			if err != nil {
+				logger.Error("Failed to retrieve info user : ", zap.Error(err))
+			}
+			structure.TplData.User.Username = username
+			structure.TplData.User.Nom = nom
+			structure.TplData.User.Prenom = prenom
+			structure.TplData.User.Email = email
+			structure.TplData.User.Age = age
+			if icon != "" {
+				structure.TplData.User.Icon = icon
+			}
 			structure.TplData.ProcessMessage = "Vous êtes maintenant connecté en tant que " + username + " !"
 			logger.Info("User" + username + "logged in successfully")
 			http.Redirect(w, r, "/", http.StatusSeeOther)

@@ -1,14 +1,16 @@
 package handlers
 
 import (
-	search "OSINT/Back/server/search"
 	account "OSINT/Back/server/account"
+	home "OSINT/Back/server/home"
 	auth "OSINT/Back/server/authentification"
 	logs "OSINT/Back/server/logs"
+	search "OSINT/Back/server/search"
 	structure "OSINT/Back/server/structure"
 	"html/template"
 	"net/http"
- 		"go.uber.org/zap"
+
+	"go.uber.org/zap"
 )
 
 var tpl *template.Template
@@ -20,6 +22,7 @@ func init() {
 }
 
 func WelcomeHandler(w http.ResponseWriter, r *http.Request) {
+	home.GetUser(w, r)
 	errTpl := tpl.ExecuteTemplate(w, "accueil.html", structure.TplData)
 	if errTpl != nil {
 		logger.Error("", zap.Error(errTpl))
@@ -64,6 +67,10 @@ func LogoutHandler(w http.ResponseWriter, r *http.Request) {
 
 func SearchHandler(w http.ResponseWriter, r *http.Request) {
 	search.Search(w, r)
+	errTpl := tpl.ExecuteTemplate(w, "recherche.html", structure.TplData)
+	if errTpl != nil {
+		logger.Error("", zap.Error(errTpl))
+	}
 }
 
 func AccountHandler(w http.ResponseWriter, r *http.Request) {
@@ -73,5 +80,3 @@ func AccountHandler(w http.ResponseWriter, r *http.Request) {
 		logger.Error("", zap.Error(errTpl))
 	}
 }
-
-
