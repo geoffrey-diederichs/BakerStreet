@@ -962,3 +962,23 @@
 {"level":"info","message":"logger construction succeeded"}
 {"level":"info","message":"logger construction succeeded"}
 {"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"Table Utilisateurs créée avec succès."}
+{"level":"error","message":"Failed to create results table","error":"table Results already exists"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"info","message":"Table Utilisateurs créée avec succès."}
+{"level":"info","message":"Table results succesfully created !"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}

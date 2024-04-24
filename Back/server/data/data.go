@@ -45,15 +45,6 @@ func OuvrirBaseDonnee(chemin string) (*sql.DB, error) {
 	} else {
 		logger.Info("La table Utilisateurs existe déjà.")
 	}
-	
-	_, err = bd.Exec(`CREATE TABLE Results (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        URL TEXT NOT NULL
-        );`)
-    if err != nil {
-        logger.Error("Failed to create result table", zap.Error(err))
-        return bd, err
-    }
 
 	_, err = bd.Exec(`CREATE TABLE History (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -65,6 +56,20 @@ func OuvrirBaseDonnee(chemin string) (*sql.DB, error) {
             logger.Error("Failed to create history table", zap.Error(err))
             return bd, err
         }
+
+	_, err = bd.Exec(`CREATE TABLE Results (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        facebook TEXT NOT NULL,
+        tiktok TEXT NOT NULL,
+        twitter TEXT NOT NULL,
+		github TEXT NOT NULL
+        );`)
+        if err != nil {
+            logger.Error("Failed to create results table", zap.Error(err))
+            return bd, err
+        } else {
+			logger.Info("Table results succesfully created !")
+		}
 
 	return bd, err
 }
