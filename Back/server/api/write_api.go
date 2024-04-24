@@ -27,6 +27,7 @@ func findPath() string {
 var abs_path = findPath()
 
 func isSearching() bool {
+	var lastLine string
 	file, err := os.Open(abs_path)
 	if err != nil {
 		logger.Info("Error opening file:", zap.Error(err))
@@ -35,11 +36,15 @@ func isSearching() bool {
 	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
-	if scanner.Scan() {
-		// logger.Info("First line:", zap.String(scanner.Text(), scanner.Text()))
+	for scanner.Scan() {
+		lastLine = scanner.Text()
+	}
+
+	if lastLine != "" {
+		logger.Info("Last line:", zap.String("lastline", lastLine))
 		re := regexp.MustCompile(`^(.*?);(.+)$`)
-		match := re.FindStringSubmatch(scanner.Text())
-		if match[1] != "" {
+		match := re.FindStringSubmatch(lastLine)
+		if match != nil {
 			// The matched group is in match[1]
 			logger.Info("Match found:", zap.String("match", match[1]))
 			return false
@@ -66,7 +71,7 @@ func Write_Api(research string) {
 			return
 		}
 		defer file.Close()
-		research+=";"
+		research += ";"
 		_, err = fmt.Fprintln(file, research)
 		if err != nil {
 			logger.Info("Error writing to file:", zap.Error(err))
