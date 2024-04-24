@@ -806,3 +806,9 @@
 {"level":"info","message":"logger construction succeeded"}
 {"level":"info","message":"logger construction succeeded"}
 {"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"connexion a la base de donnée réussite"}
+{"level":"error","message":"Failed to create db","error":"Binary was compiled with 'CGO_ENABLED=0', go-sqlite3 requires cgo to work. This is a stub"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
+{"level":"info","message":"logger construction succeeded"}
