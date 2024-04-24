@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	accueil "OSINT/Back/server/accueil"
 	account "OSINT/Back/server/account"
 	auth "OSINT/Back/server/authentification"
 	logs "OSINT/Back/server/logs"
@@ -19,6 +20,7 @@ func init() {
 }
 
 func WelcomeHandler(w http.ResponseWriter, r *http.Request) {
+	accueil.GetUser(w, r)
 	errTpl := tpl.ExecuteTemplate(w, "accueil.html", structure.TplData)
 	if errTpl != nil {
 		logger.Error("", zap.Error(errTpl))

@@ -34,6 +34,8 @@
           <a href="#" class="user-toggler" aria-label="Sign in page">
             <img src="/Front/assets/img/utilisateur.png" alt="user icon" />
           </a>
+          
+          {{if not .User}}
           <div class="sign-btns">
             <a href="/Enregistrement">
               <button type="button">S'enregistrer</button>
@@ -42,6 +44,12 @@
               <button type="button">Se connecter</button>
             </a>
           </div>
+          {{else}}
+          <p>{{.User.Username}}</p>
+          <a href="/Deconnexion">
+            <button type="button">Se déconnecter</button>
+          </a>
+          {{end}}
         </div>
         
       </nav>

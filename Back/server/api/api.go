@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"net/http"
 	"os"
-
 	"go.uber.org/zap/zapcore"
 )
 
