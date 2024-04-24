@@ -2,6 +2,7 @@ body {
     background-color: #0D1B2B;
     font-family: 'Kokoro', sans-serif;
     height: 100vh;
+    /* min-height: 100vh; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -96,7 +97,7 @@ button:hover {
 }
 
 .login-link {
-    margin-top: 16px;
+    /* margin-top: 3px; */
     text-align: center;
 }
 
@@ -111,9 +112,10 @@ a:hover {
 
 .login-link {
     text-align: center;
-    margin-top: 16px;
-    position: absolute; /* Ajouté pour le positionnement absolu */
-    bottom: 2%; /* Distance par rapport au bas de la page */
+    margin-left: -4px;
+    margin-bottom: 10px;
+    /* position: absolute;  */
+    /* bottom: 2%; */
     width: 100%; /* Prend toute la largeur de la fenêtre */
     color: #fff;
 }
@@ -160,6 +162,22 @@ a:hover {
 
 #Prenom {
     background-image: url('/Front/assets/img/carte-didentite.png');  /* Remplacez par le chemin de votre image */
+    background-repeat: no-repeat;
+    background-position: calc(100% - 20px) center;
+    background-size: 20px; /* La taille de l'image, ajustez selon vos besoins */
+    padding-right: 30px;
+}
+
+#icon {
+    background-image: url('/Front/assets/img/image-de-profil.png');  /* Remplacez par le chemin de votre image */
+    background-repeat: no-repeat;
+    background-position: calc(100% - 20px) center;
+    background-size: 20px; /* La taille de l'image, ajustez selon vos besoins */
+    padding-right: 30px;
+}
+
+#age {
+    background-image: url('/Front/assets/img/age.png');  /* Remplacez par le chemin de votre image */
     background-repeat: no-repeat;
     background-position: calc(100% - 20px) center;
     background-size: 20px; /* La taille de l'image, ajustez selon vos besoins */
