@@ -67,9 +67,9 @@ func LogoutHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func SearchHandler(w http.ResponseWriter, r *http.Request) {
-	research := search.Search(w, r)
+	research := search.GetInput(w, r)
 	api.Write_Api(research)
-	http.Redirect(w, r, "/Api", http.StatusSeeOther)
+	http.Redirect(w, r, "/Resultats", http.StatusSeeOther)
 }
 
 func ApiHandler(w http.ResponseWriter, r *http.Request) {
@@ -77,8 +77,7 @@ func ApiHandler(w http.ResponseWriter, r *http.Request) {
 	if results != "" {
 		api.Convert_Json(results)
 	}else{
-		structure.TplData.Results = structure.Results{}
-		logger.Info("No results found")
+		logger.Error("No results added to page after converting JSON")
 	}
 	errTpl := tpl.ExecuteTemplate(w, "recherche.html", structure.TplData)
 	if errTpl != nil {

@@ -43,13 +43,17 @@ func isSearching() bool {
 	if lastLine != "" {
 		re := regexp.MustCompile(`^(.*?);(.+)$`)
 		match := re.FindStringSubmatch(lastLine)
-		if match != nil {
-			logger.Info("No incomplete research found, starting new research now...")
-			return false
-		} else {
-			logger.Info("No data found after")
-			return true
-		}
+		if(match != nil){
+            if len(match) == 3 {
+				logger.Info("No incomplete research was found, starting new research now...")
+				return false
+            } else {
+                logger.Info("cant write to file : incorrect result line in api.txt file")
+				return true
+			}
+        }else{
+            logger.Info("An incomplete research was found, try later")
+        }
 
 	}
 
@@ -72,8 +76,8 @@ func Write_Api(research string) {
 		if err != nil {
 			logger.Info("Error writing to file:", zap.Error(err))
 		}
-		logger.Info("Data written to file")
+		logger.Info("",zap.String("Input user written to file",research))
 	} else {
-		logger.Info("Data already being searched")
+		logger.Error("Cant write new input to file : old input already being searched")
 	}
 }

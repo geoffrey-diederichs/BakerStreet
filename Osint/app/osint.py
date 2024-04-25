@@ -74,17 +74,14 @@ def Lookup() -> None:
 
 def getTarget() -> (str, int):
     
-    # print(API)
     if not os.path.exists(API):
         raise FileNotFoundError(f"The file {API} does not exist.")
     with open(API, "r") as f:
         data = f.read()
-        print("data trouvé first step",data)
         data = data.split("\n")
         for i in range(len(data)-1):
             lines = data[i].split(";")
             if len(lines[1]) == 0:
-                print("target first stepfound",data[i].split(";")[0], i)
                 return data[i].split(";")[0], i
     return "", -1
 
@@ -92,7 +89,6 @@ def writeResult(target: str, line: int, result: str) -> None:
     data = ""
     with open(API, "r") as f:
         data = f.read()
-        print("data trouvé second step",data)
     data = data.split("\n")
     data[line] = target+";"+result
     data = "\n".join(data)
@@ -104,13 +100,9 @@ def loop() -> None:
     while True:
         time.sleep(1)
         target, line = getTarget()
-        print("targe found : ",target)
         if not ((target == "") and (line == -1)):
-            print("trying to look",target)
             result = fullLookup(brow, target)
-            print("results founds",result)
             writeResult(target, line, str(result))
-            print("writing done")
 
 if __name__ == "__main__":
     loop()

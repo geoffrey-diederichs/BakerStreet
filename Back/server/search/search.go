@@ -10,7 +10,7 @@ import (
 
 var logger = logs.GetLog(logs.GetLogConfig())
 
-func Search(w http.ResponseWriter, r *http.Request) string {
+func GetInput(w http.ResponseWriter, r *http.Request) string {
 	session, err := data.Store.Get(r, "data")
 	if err != nil {
 		logger.Error("Failed to get the session : ", zap.Error(err))
@@ -38,7 +38,8 @@ func Search(w http.ResponseWriter, r *http.Request) string {
 				logger.Error("Erreur lors de l'ajout à l'historique:", zap.Error(errAddHistory))
 				return ""
 			}else{
-                logger.Info("recherche %s ajouté à l'historique utilisateur le : %s",zap.String("",research),zap.String("",timestamp))
+                logger.Info("",zap.String("recherche",research))
+                logger.Info("",zap.String("ajouté à l'historique utilisateur le",timestamp))
             }
 
 			return research

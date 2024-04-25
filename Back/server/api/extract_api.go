@@ -15,7 +15,7 @@ func Extract_Results() string {
 	var lastLine string
 	file, err := os.Open(abs_path)
 	if err != nil {
-		logger.Info("Error opening file:", zap.Error(err))
+		logger.Error("Error opening file:", zap.Error(err))
         return ""
 	}
 	defer file.Close()
@@ -30,20 +30,21 @@ func Extract_Results() string {
 		match := re.FindStringSubmatch(lastLine)
         if(match != nil){
             if len(match) == 3 {
+                logger.Info("Extracting Results : operation successful")
                 return match[2]
             } else {
-                logger.Info("incorrect result line in api.txt file")
+                logger.Error("Extracting Results : incorrect result line in api.txt file")
                 return ""
             }
         }else{
-            logger.Info("No data found after")
+            logger.Error("Extracting Results : No input found")
             return ""
         }
 
 	}
 
 	if err := scanner.Err(); err != nil {
-		logger.Info("Error reading file:", zap.Error(err))
+		logger.Error("Error reading file:", zap.Error(err))
 	}
 	return ""
 }
@@ -58,9 +59,7 @@ func Convert_Json (line string) {
         logger.Error("Erreur lors du décodage de la ligne JSON", zap.Error(err))
         return 
     }
-
+    logger.Info("All results added to page after converting JSON")
     structure.TplData.Results = results
-    // Affiche à nouveau la structure TplData après l'appel à Extract_Api
-    // fmt.Printf("TplData après l'appel à Extract_Api : %+v\n", structure.TplData.Results)
 
 }
