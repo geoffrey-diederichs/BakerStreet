@@ -19,7 +19,7 @@ img{
     /* border: grey; */
     border: none;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajouter une ombre portée simulant une bordure */
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)); /* Ajouter un dégradé de gauche à droite */
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
     padding: 0 20px; /* Ajouter un peu d'espace intérieur */
 }
 
@@ -31,6 +31,10 @@ img{
 }
 
 .search-icon {
+    background-image: url('/Front/assets/img/rechercher.png'); /* Chemin vers votre image */
+    background-size: cover; /* Couvre tout le bouton sans perdre les proportions */
+    background-position: center; /* Centre l'image dans le bouton */
+    border: none;
     position: absolute;
     right: 20px;
     top: 50%;
@@ -38,6 +42,7 @@ img{
     width: 20px; /* Ajuste la taille de ton icône si nécessaire */
     height: 20px; /* Ajuste la taille de ton icône si nécessaire */
     cursor: pointer;
+    background-color: transparent;
 }
 
 .searchbar::-moz-search-clear-button {
