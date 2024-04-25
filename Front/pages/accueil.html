@@ -14,7 +14,7 @@
 <body>
     <nav>
 
-        <a href="#" class="nav-icon" aria-label="homepage" aria-current="page">
+        <a href="/" class="nav-icon" aria-label="homepage" aria-current="page">
           <img src="/Front/assets/img/logo sur coté noir.png" alt="chat icon" />
         </a>
   
@@ -43,12 +43,12 @@
             <a href="/Authentification">
               <button type="button">Se connecter</button>
             </a>
+            {{else}}
+            <button type="button">{{.User.Username}}</button>
+            <a href="/Deconnexion">
+              <button type="button">Se déconnecter</button>
+            </a>
           </div>
-          {{else}}
-          <p>{{.User.Username}}</p>
-          <a href="/Deconnexion">
-            <button type="button">Se déconnecter</button>
-          </a>
           {{end}}
         </div>
         
