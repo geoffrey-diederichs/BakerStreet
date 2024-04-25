@@ -55,7 +55,31 @@
               <h2>RESULTATS</h2>
               <div class="item">
                 <img class="icon" src="/Front/assets/img/chevron-fleche-vers-le-bas (2).png" alt="historique">
-                {{range .Results.Today}}
+                {{range .Results.Facebook}}
+                <div class="detail-content">
+                  <p>Research: {{.}}</p>
+                </div>
+                {{end}}
+              </div>
+              <div class="item">
+                <img class="icon" src="/Front/assets/img/chevron-fleche-vers-le-bas (2).png" alt="historique">
+                {{range .Results.Twitter}}
+                <div class="detail-content">
+                  <p>Research: {{.}}</p>
+                </div>
+                {{end}}
+              </div>
+              <div class="item">
+                <img class="icon" src="/Front/assets/img/chevron-fleche-vers-le-bas (2).png" alt="historique">
+                {{range .Results.Tiktok}}
+                <div class="detail-content">
+                  <p>Research: {{.}}</p>
+                </div>
+                {{end}}
+              </div>
+              <div class="item">
+                <img class="icon" src="/Front/assets/img/chevron-fleche-vers-le-bas (2).png" alt="historique">
+                {{range .Results.Github}}
                 <div class="detail-content">
                   <p>Research: {{.}}</p>
                 </div>

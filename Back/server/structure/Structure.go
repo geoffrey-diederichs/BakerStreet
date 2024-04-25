@@ -24,10 +24,10 @@ type TemplateData struct {
 }
 
 type Results struct {
-	facebook [] string
-	tiktok [] string
-	twitter [] string
-	github [] string
+	Facebook [] string
+	Tiktok [] string
+	Twitter [] string
+	Github [] string
 }
 
 type History struct {
