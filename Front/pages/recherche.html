@@ -25,19 +25,30 @@
               <span></span>
             </button>
           <div class="navlinks-container">
-            <a href="#" aria-current="page">Accueil</a>
-            <a href="#">parametres</a>
+            <a href="/" aria-current="page">Accueil</a>
           </div>
         </div>
   
         <div class="nav-authentication">
-          <a href="#" class="user-toggler" aria-label="Sign in page">
+          <a href="/Account" class="user-toggler" aria-label="Sign in page">
             <img src="/Front/assets/img/utilisateur.png" alt="user icon" />
           </a>
+          
+          {{if not .User.Username}}
           <div class="sign-btns">
-            <button type="button">S'enregistrer</button>
-            <button type="button">Se connecter</button>
+            <a href="/Enregistrement">
+              <button type="button">S'enregistrer</button>
+            </a>
+            <a href="/Authentification">
+              <button type="button">Se connecter</button>
+            </a>
+            {{else}}
+            <button type="button">{{.User.Username}}</button>
+            <a href="/Deconnexion">
+              <button type="button">Se déconnecter</button>
+            </a>
           </div>
+          {{end}}
         </div>
         
       </nav>
@@ -53,38 +64,59 @@
           <div class="box">
             <div class="title2">
               <h2>RESULTATS</h2>
+            </div>
               <div class="item">
-                <img class="icon" src="/Front/assets/img/chevron-fleche-vers-le-bas (2).png" alt="historique">
-                {{range .Results.Facebook}}
-                <div class="detail-content">
-                  <p>Research: {{.}}</p>
-                </div>
+                {{if .Results.Facebook}}
+                    {{range .Results.Facebook}}
+                    <div class="detail-content">
+                        <a href="{{.}}">Research: {{.}}</a>
+                    </div>
+                    {{end}}
+                {{else}}
+                    <div class="detail-content">
+                        <p>No Facebook results.</p>
+                    </div>
                 {{end}}
-              </div>
-              <div class="item">
-                <img class="icon" src="/Front/assets/img/chevron-fleche-vers-le-bas (2).png" alt="historique">
-                {{range .Results.Twitter}}
-                <div class="detail-content">
-                  <p>Research: {{.}}</p>
-                </div>
+            </div>
+            <div class="item">
+                {{if .Results.Twitter}}
+                    {{range .Results.Twitter}}
+                    <div class="detail-content">
+                        <a href="{{.}}">Research: {{.}}</a>
+                    </div>
+                    {{end}}
+                {{else}}
+                    <div class="detail-content">
+                        <p>No Twitter results.</p>
+                    </div>
                 {{end}}
-              </div>
-              <div class="item">
-                <img class="icon" src="/Front/assets/img/chevron-fleche-vers-le-bas (2).png" alt="historique">
-                {{range .Results.Tiktok}}
-                <div class="detail-content">
-                  <p>Research: {{.}}</p>
-                </div>
+            </div>
+            <div class="item">
+                {{if .Results.TikTok}}
+                    {{range .Results.TikTok}}
+                    <div class="detail-content">
+                        <a href="{{.}}">Research: {{.}}</a>
+                    </div>
+                    {{end}}
+                {{else}}
+                    <div class="detail-content">
+                        <p>No Tiktok results.</p>
+                    </div>
                 {{end}}
-              </div>
-              <div class="item">
-                <img class="icon" src="/Front/assets/img/chevron-fleche-vers-le-bas (2).png" alt="historique">
-                {{range .Results.Github}}
-                <div class="detail-content">
-                  <p>Research: {{.}}</p>
-                </div>
+            </div>
+            <div class="item">
+                {{if .Results.GitHub}}
+                    {{range .Results.GitHub}}
+                    <div class="detail-content">
+                        <a href="{{.}}">Research: {{.}}</a>
+                    </div>
+                    {{end}}
+                {{else}}
+                    <div class="detail-content">
+                        <p>No Github results.</p>
+                    </div>
                 {{end}}
-              </div>
+            </div>
           </div>
         </div>
         <!-- <script src="scrolling.js"></script> -->

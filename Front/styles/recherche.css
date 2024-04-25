@@ -38,8 +38,9 @@
 
 .box {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
     height: 90%;
     width: 100%;
     background-color: #1B263B;
@@ -47,6 +48,14 @@
     /* margin-right: 15%; */
     overflow-y: auto;
     box-sizing: border-box;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    padding: 2%;
+}
+
+
+.box::-webkit-scrollbar {
+display: none;  /* Chrome, Safari, Opera */
 }
 
 .title2 {
@@ -56,7 +65,7 @@
     height: 4%;
     width: 100%;
     color: #fff;
-    margin-bottom: 55%;
+    margin-bottom: 8%;
 }
 
 .title2 h2 {
@@ -66,11 +75,12 @@
 
 .item {
     display: flex; /* Aligner les éléments enfants horizontalement */
+    flex-direction: column; /* Aligner les éléments enfants verticalement */
+    width: 90%; /* Largeur de l'élément */
     align-items: center; /* Centrer les éléments enfants verticalement */
-    gap: 20px; /* Espace entre l'icône et le texte */
-    margin: 5%;
+    margin-left: 5%;
+    margin-top: 2%;
     background-color: #0D1B2B ;
-    min-height: 250%;
     height: auto;
     border-radius: 20px;
 }
@@ -86,16 +96,15 @@
 }
 
 .detail-content {
-    display: none; /* Ou 'block' si actif, selon ta logique JS */
     width: 100%;
-    min-height: 100px; /* Hauteur minimale au départ */
-    max-height: 200px; /* Hauteur maximale avant d'afficher la barre de défilement */
-    /* Pas de hauteur fixe ici pour permettre au contenu de pousser les éléments en dessous */
+    height: auto;
+    color: #fff;
+     /* Pas de hauteur fixe ici pour permettre au contenu de pousser les éléments en dessous */
     /* overflow-y: auto; Permet un défilement si le contenu est trop long */
     box-sizing: border-box; /* Assure que padding et border sont inclus dans la largeur */
     /* Ajoute tes styles de padding, margin, etc. ici */
     /* background-color: red; */
-    padding: 10%;
+    padding: 2%;
     word-wrap: break-word; /* Cela casse le mot long à la fin de la ligne et passe à la ligne suivante */
     word-break: break-all;
   }

@@ -24,11 +24,12 @@ type TemplateData struct {
 }
 
 type Results struct {
-	Facebook [] string
-	Tiktok [] string
-	Twitter [] string
-	Github [] string
+	Facebook []string `json:"facebook"`
+	TikTok   []string `json:"tiktok"`
+	Twitter  []string `json:"twitter"`
+	GitHub   []string `json:"github"`
 }
+
 
 type History struct {
 	Yesterday [] string

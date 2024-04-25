@@ -75,7 +75,7 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ApiHandler(w http.ResponseWriter, r *http.Request) {
-	api.Test_Api(w, r)
+	api.Extract_Api()
 	errTpl := tpl.ExecuteTemplate(w, "recherche.html", structure.TplData)
 	if errTpl != nil {
 		logger.Error("", zap.Error(errTpl))

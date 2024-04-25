@@ -25,19 +25,30 @@
               <span></span>
             </button>
           <div class="navlinks-container">
-            <a href="#" aria-current="page">Accueil</a>
-            <a href="#">parametres</a>
+            <a href="/" aria-current="page">Accueil</a>
           </div>
         </div>
   
         <div class="nav-authentication">
-          <a href="#" class="user-toggler" aria-label="Sign in page">
+          <a href="/Account" class="user-toggler" aria-label="Sign in page">
             <img src="/Front/assets/img/utilisateur.png" alt="user icon" />
           </a>
+          
+          {{if not .User.Username}}
           <div class="sign-btns">
-            <button type="button">S'enregistrer</button>
-            <button type="button">Se connecter</button>
+            <a href="/Enregistrement">
+              <button type="button">S'enregistrer</button>
+            </a>
+            <a href="/Authentification">
+              <button type="button">Se connecter</button>
+            </a>
+            {{else}}
+            <button type="button">{{.User.Username}}</button>
+            <a href="/Deconnexion">
+              <button type="button">Se déconnecter</button>
+            </a>
           </div>
+          {{end}}
         </div>
         
       </nav>
