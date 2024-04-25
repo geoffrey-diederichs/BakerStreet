@@ -19,6 +19,7 @@ nav {
   padding: 15px 25px;
   background: #0D1B2B;
   transition: all .5s;
+  z-index: 1000;
 
 }
 .nav-icon {
