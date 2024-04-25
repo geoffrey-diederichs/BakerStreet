@@ -13,6 +13,8 @@ import (
 
 var logger = logs.GetLog(logs.GetLogConfig())
 
+var abs_path = findPath()
+
 func findPath() string {
 	path := "../BakerStreet/Osint/app/api/api.txt"
 	abs_path, err := filepath.Abs(path)
@@ -23,8 +25,6 @@ func findPath() string {
 	logger.Info("Absolute path:", zap.String(abs_path, abs_path))
 	return abs_path
 }
-
-var abs_path = findPath()
 
 func isSearching() bool {
 	var lastLine string
@@ -41,13 +41,10 @@ func isSearching() bool {
 	}
 
 	if lastLine != "" {
-		logger.Info("Last line:", zap.String("lastline", lastLine))
 		re := regexp.MustCompile(`^(.*?);(.+)$`)
 		match := re.FindStringSubmatch(lastLine)
 		if match != nil {
-			// The matched group is in match[1]
-			// logger.Info("Match found:", zap.String("match", match[1]))
-			logger.Info("Data found after")
+			logger.Info("No incomplete research found, starting new research now...")
 			return false
 		} else {
 			logger.Info("No data found after")
@@ -63,9 +60,7 @@ func isSearching() bool {
 }
 
 func Write_Api(research string) {
-
 	if !isSearching() {
-
 		file, err := os.OpenFile(abs_path, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 		if err != nil {
 			logger.Info("Error opening file:", zap.Error(err))

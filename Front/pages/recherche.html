@@ -43,7 +43,9 @@
               <button type="button">Se connecter</button>
             </a>
             {{else}}
-            <button type="button">{{.User.Username}}</button>
+            <a href="/Account">
+              <button type="button">{{.User.Username}}</button>
+            </a>
             <a href="/Deconnexion">
               <button type="button">Se déconnecter</button>
             </a>

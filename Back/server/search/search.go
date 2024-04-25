@@ -1,48 +1,51 @@
 package search
 
 import (
-
-    data "OSINT/Back/server/data"
-    api "OSINT/Back/server/api"
-    logs "OSINT/Back/server/logs"
-    // structure "OSINT/Back/server/structure"
-    "net/http"
-    "go.uber.org/zap"
+	data "OSINT/Back/server/data"
+	logs "OSINT/Back/server/logs"
+	"net/http"
 	"time"
+	"go.uber.org/zap"
 )
 
 var logger = logs.GetLog(logs.GetLogConfig())
 
-func Search(w http.ResponseWriter, r *http.Request){
-    logger.Info("tentativederecherche")
+func Search(w http.ResponseWriter, r *http.Request) string {
 	session, err := data.Store.Get(r, "data")
-    if err != nil {
-        logger.Error("Failed to get the session : ", zap.Error(err))
-        return
-    }
-    username, isUser := session.Values["username"].(string)
-	if isUser{
-        logger.Info("vous etes bien connecté")
+	if err != nil {
+		logger.Error("Failed to get the session : ", zap.Error(err))
+		return ""
+	}
+	username, isUser := session.Values["username"].(string)
+	if isUser {
+		logger.Info("vous etes bien connecté en tant que %s",zap.String("",username))
 		if r.Method == "POST" {
-            logger.Info("Methode post succès")
-            research := r.FormValue("search")
-            logger.Info("Recherche : ", zap.String("research", research))
-            api.Write_Api(research)
-            maintenant := time.Now()
-            timestamp := maintenant.Format(time.RFC3339)
-            _, errAddHistory := data.Bd.Exec("INSERT INTO History (username, research, timestamp) VALUES (?, ?, ?)", username, research, timestamp)
+			research := r.FormValue("search")
 
-	    if errAddHistory != nil {
-            // Gérer l'erreur, par exemple, en la journalisant ou en envoyant une réponse d'erreur au client
-            logger.Info("Erreur lors de l'ajout à l'historique:", zap.Error(errAddHistory))
-            http.Error(w, "Erreur lors de l'ajout à l'historique", http.StatusInternalServerError)
-            return
-        }
+			if research != "" {
+				logger.Info("", zap.String("input found :", research))
+			} else {
+				logger.Info("", zap.String("input user is empty:", research))
+				return ""
+			}
 
-        // Si tout s'est bien passé, vous pouvez envoyer une réponse de succès au client
-        w.WriteHeader(http.StatusOK)
-        logger.Info("Recherche ajoutée à l'historique avec succès")
+			maintenant := time.Now()
+			timestamp := maintenant.Format(time.RFC3339)
+			_, errAddHistory := data.Bd.Exec("INSERT INTO History (username, research, timestamp) VALUES (?, ?, ?)", username, research, timestamp)
+
+			if errAddHistory != nil {
+				// Gérer l'erreur, par exemple, en la journalisant ou en envoyant une réponse d'erreur au client
+				logger.Error("Erreur lors de l'ajout à l'historique:", zap.Error(errAddHistory))
+				return ""
+			}else{
+                logger.Info("recherche %s ajouté à l'historique utilisateur le : %s",zap.String("",research),zap.String("",timestamp))
+            }
+
+			return research
+		} else {
+			logger.Error("mauvaise requete utilisateur")
+		}
 	}
-	}
-	
+
+	return ""
 }

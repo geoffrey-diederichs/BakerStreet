@@ -67,15 +67,19 @@ func LogoutHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func SearchHandler(w http.ResponseWriter, r *http.Request) {
-	search.Search(w, r)
-	errTpl := tpl.ExecuteTemplate(w, "recherche.html", structure.TplData)
-	if errTpl != nil {
-		logger.Error("", zap.Error(errTpl))
-	}
+	research := search.Search(w, r)
+	api.Write_Api(research)
+	http.Redirect(w, r, "/Api", http.StatusSeeOther)
 }
 
 func ApiHandler(w http.ResponseWriter, r *http.Request) {
-	api.Extract_Api()
+	results := api.Extract_Results()
+	if results != "" {
+		api.Convert_Json(results)
+	}else{
+		structure.TplData.Results = structure.Results{}
+		logger.Info("No results found")
+	}
 	errTpl := tpl.ExecuteTemplate(w, "recherche.html", structure.TplData)
 	if errTpl != nil {
 		logger.Error("", zap.Error(errTpl))

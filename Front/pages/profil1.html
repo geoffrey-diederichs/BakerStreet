@@ -43,7 +43,9 @@
               <button type="button">Se connecter</button>
             </a>
             {{else}}
-            <button type="button">{{.User.Username}}</button>
+            <a href="/Account">
+              <button type="button">{{.User.Username}}</button>
+            </a>
             <a href="/Deconnexion">
               <button type="button">Se déconnecter</button>
             </a>
@@ -67,6 +69,7 @@
               <h2>HISTORIQUE</h2>
               <div class="item">
                 <img class="icon" src="/Front/assets/img/chevron-fleche-vers-le-bas (2).png" alt="historique">
+                <p>Aujourd'hui</p>
                 {{range .History.Today}}
                 <div class="detail-content">
                   <p>Research: {{.}}</p>
