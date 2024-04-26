@@ -16,7 +16,7 @@ var logger = logs.GetLog(logs.GetLogConfig())
 var abs_path = findPath()
 
 func findPath() string {
-	path := "../BakerStreet/Osint/app/api/api.txt"
+	path := "../BakerStreet/Osint/api/api.txt"
 	abs_path, err := filepath.Abs(path)
 	if err != nil {
 		logger.Info("Error getting absolute path:", zap.Error(err))

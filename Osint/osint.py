@@ -6,12 +6,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import json
 import time
-import os
 
-def get_file_path(filename):
-    return os.path.abspath(filename)
-
-API = get_file_path("api/api.txt")
+API = "/api/api.txt"
 
 def setUpBrowser(options:bool) -> webdriver:
     if (options == True):
@@ -71,11 +67,7 @@ def Lookup() -> None:
     brow = setUpBrowser(True)
     response = fullLookup(brow, target)
 
-
 def getTarget() -> (str, int):
-    
-    if not os.path.exists(API):
-        raise FileNotFoundError(f"The file {API} does not exist.")
     with open(API, "r") as f:
         data = f.read()
         data = data.split("\n")

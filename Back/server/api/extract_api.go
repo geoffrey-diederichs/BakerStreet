@@ -1,22 +1,23 @@
 package api
 
 import (
-	 structure "OSINT/Back/server/structure"
+	structure "OSINT/Back/server/structure"
 	"bufio"
 	"encoding/json"
-    "regexp"
-    "os"
-    "time"
+	"os"
+	"regexp"
+	"time"
+
 	"go.uber.org/zap"
 )
 
 func Extract_Results() string {
-    time.Sleep(9 * time.Second)
+	time.Sleep(15 * time.Second)
 	var lastLine string
 	file, err := os.Open(abs_path)
 	if err != nil {
 		logger.Error("Error opening file:", zap.Error(err))
-        return ""
+		return ""
 	}
 	defer file.Close()
 
@@ -28,18 +29,18 @@ func Extract_Results() string {
 	if lastLine != "" {
 		re := regexp.MustCompile(`^(.*?);(.+)$`)
 		match := re.FindStringSubmatch(lastLine)
-        if(match != nil){
-            if len(match) == 3 {
-                logger.Info("Extracting Results : operation successful")
-                return match[2]
-            } else {
-                logger.Error("Extracting Results : incorrect result line in api.txt file")
-                return ""
-            }
-        }else{
-            logger.Error("Extracting Results : No input found")
-            return ""
-        }
+		if match != nil {
+			if len(match) == 3 {
+				logger.Info("Extracting Results : operation successful")
+				return match[2]
+			} else {
+				logger.Error("Extracting Results : incorrect result line in api.txt file")
+				return ""
+			}
+		} else {
+			logger.Error("Extracting Results : No input found")
+			return ""
+		}
 
 	}
 
@@ -49,17 +50,17 @@ func Extract_Results() string {
 	return ""
 }
 
-func Convert_Json (line string) {
+func Convert_Json(line string) {
 
-    var results structure.Results
-    
-    err := json.Unmarshal([]byte(line), &results)
+	var results structure.Results
 
-    if err != nil {
-        logger.Error("Erreur lors du décodage de la ligne JSON", zap.Error(err))
-        return 
-    }
-    logger.Info("All results added to page after converting JSON")
-    structure.TplData.Results = results
+	err := json.Unmarshal([]byte(line), &results)
+
+	if err != nil {
+		logger.Error("Erreur lors du décodage de la ligne JSON", zap.Error(err))
+		return
+	}
+	logger.Info("All results added to page after converting JSON")
+	structure.TplData.Results = results
 
 }
